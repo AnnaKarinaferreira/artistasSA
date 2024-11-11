@@ -1,5 +1,6 @@
+import * as React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { useState } from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
 
 // Importação dos componentes
@@ -14,9 +15,8 @@ function App() {
   const [count, setCount] = useState(0);
 
   return (
-    <BrowserRouter>
-      <div>
-        <Routes>
+    <Router>
+      <Routes>
           <Route path="/" element={<HomeN />} />
           <Route path="/Login" element={<Login />} />
           <Route path="/cadastro" element={<Cadastro />} />
@@ -24,8 +24,7 @@ function App() {
           <Route path="/desafios" element={<Desafios />} />
           <Route path="/home" element={<Home />} />
         </Routes>
-      </div>
-    </BrowserRouter>
+    </Router>
   );
 }
 
