@@ -1,12 +1,14 @@
 import { useState } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './Home.css'
+import seta from "../../assets/seta.png"
+import HeaderLog from '../Header/HeaderLog';
 
 const Home = () => {
 
-
     return(
         <>
+        <HeaderLog></HeaderLog>
          <div >
         <div>
           <p >Evento Especial de natal</p>

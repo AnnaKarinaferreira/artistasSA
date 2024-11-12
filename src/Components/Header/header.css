@@ -1,0 +1,86 @@
+.not{
+    border-style: none;
+    margin-left: 30px;
+}
+
+.imgPerfil{
+    height: 30px;
+}
+
+.btnPerfil{
+    border-style: none;
+    margin-left: 30px;
+}
+
+.trabalhos a{
+    text-decoration: none;
+    color: black;
+}
+.evento{
+    color: #f3f0ed;
+}
+
+.unsBtn{
+    width: max-content;
+}
+
+.tamanho{
+    width: 100%;
+    display: grid;
+    position: fixed;
+    top: 0;
+    background-color: #f3f0ed;
+    align-items: center;
+    justify-content: center;
+    padding-top: 3px;
+    grid-template-rows: 1fr max-content
+}
+
+.tamanho > img{
+    margin: auto;
+    height: 80px;
+}
+
+#logado{
+    grid-template-columns: 1fr 1.5fr 3fr 1fr;
+    grid-template-rows: 1fr;
+}
+
+#NAOlogado{
+    grid-template-columns: 1fr 1.5fr 3fr 3fr;
+    grid-template-rows: 1fr;
+}
+
+ a {
+    text-decoration: none;
+ }
+
+ .btnETD{
+    border: none;
+    font-weight: 500;
+    margin: 20px;
+}
+
+.btnlogin{
+    border-color: #C65A37;
+    background-color: transparent;
+    color: #C65A37;
+    font-weight: 600;
+    width: 130px;
+    height: 35px;
+    border-radius: 10px;
+    margin-left: 40px;
+}
+
+.btncadastro{
+    border: none;
+    background-color: #C65A37;
+    margin-left: 20px;
+    font-weight: 600;
+    width: 130px;
+    height: 35px;
+    border-radius: 10px;
+    color: white;
+}
+
+

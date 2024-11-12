@@ -6,7 +6,6 @@ import './App.css';
 // Importação dos componentes
 import Login from './Components/Login/Login.jsx';
 import Cadastro from './Components/Cadastro/Cadastro.jsx';
-import Competicao from './Components/Competicao/Competicao.jsx';
 import Desafios from './Components/Desafios/Desafios.jsx';
 import Home from './Components/HomeLogado/Home.jsx';
 import HomeN from './Components/HomeNLogado/HomeN.jsx';
@@ -21,12 +20,11 @@ function App() {
       <Routes>
           <Route path="/" element={<HomeN />} />
           <Route path="/Login" element={<Login />} />
-          <Route path="/cadastro" element={<Cadastro />} />
-          <Route path="/competicao" element={<Competicao />} />
-          <Route path="/desafios" element={<Desafios />} />
-          <Route path="/home" element={<Home />} />
+          <Route path="/Cadastro" element={<Cadastro />} />
+          <Route path="/Desafios" element={<Desafios />} />
+          <Route path="/Home" element={<Home />} />
           <Route path='/OutroArtista' element={<OutroArt/>}/>
-          <Route path='/PerfilArtista' element={<PerfilArt/>}/>
+          <Route path='/PerfilArt' element={<PerfilArt/>}/>
         </Routes>
     </Router>
   );
