@@ -10,6 +10,8 @@ import Competicao from './Components/Competicao/Competicao.jsx';
 import Desafios from './Components/Desafios/Desafios.jsx';
 import Home from './Components/HomeLogado/Home.jsx';
 import HomeN from './Components/HomeNLogado/HomeN.jsx';
+import OutroArt from './Components/Perfiloutroartista/OutroArt.jsx';
+import PerfilArt from './Components/Perfilartista/PerfilArt.jsx';
 
 function App() {
   const [count, setCount] = useState(0);
@@ -23,6 +25,8 @@ function App() {
           <Route path="/competicao" element={<Competicao />} />
           <Route path="/desafios" element={<Desafios />} />
           <Route path="/home" element={<Home />} />
+          <Route path='/OutroArtista' element={<OutroArt/>}/>
+          <Route path='/PerfilArtista' element={<PerfilArt/>}/>
         </Routes>
     </Router>
   );
