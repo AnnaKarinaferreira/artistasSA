@@ -1,16 +1,17 @@
 import { useState } from 'react'
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import './HomeN.css'
+import './Homes.css'
 import seta from '../../assets/seta.png'
+import HeaderNLog from '../Header/HeaderNLog';
 
 const HomeN = () => {
 
 
     return(
         <>
-
-      <div >
+        <HeaderNLog></HeaderNLog>
+      <div class='eventos'>
         <div>
           <p >Evento Especial de natal</p>
         </div>

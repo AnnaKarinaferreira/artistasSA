@@ -7,8 +7,8 @@ import './App.css';
 import Login from './Components/Login/Login.jsx';
 import Cadastro from './Components/Cadastro/Cadastro.jsx';
 import Desafios from './Components/Desafios/Desafios.jsx';
-import Home from './Components/HomeLogado/Home.jsx';
-import HomeN from './Components/HomeNLogado/HomeN.jsx';
+import Home from './Components/Home/Home.jsx';
+import HomeN from './Components/Home/HomeN.jsx';
 import OutroArt from './Components/Perfiloutroartista/OutroArt.jsx';
 import PerfilArt from './Components/Perfilartista/PerfilArt.jsx';
 
