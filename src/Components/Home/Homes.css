@@ -13,6 +13,12 @@ body, html{
     row-gap: 30px; /* Espaço entre linhas */
     margin: 20px; /* Margem uniforme em todos os lados */
 }
+
+.desenho1{
+    text-align: center;
+    align-items: center;
+}
+
 .desenho1,
 .desenho2,
 .desenho3,
@@ -34,6 +40,22 @@ body, html{
     border-radius: 3vh;
     color: #f3f0ed;
 }
+
+.aviso{
+    margin-top: 20%;
+    color: #f3f0ed;
+}
+.linkvizu {
+    text-decoration: none;
+    color: #C65A37; 
+}
+.vizualizar{
+    border-color:#C65A37;
+    background-color: #ffffff;
+    border-radius: 10px;
+    text-decoration: none;
+}
+
 .eventos div{
     max-width: 390px;
     height: 167px;
