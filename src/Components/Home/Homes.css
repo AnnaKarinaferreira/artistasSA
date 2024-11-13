@@ -5,7 +5,35 @@ body, html{
     background-color: #f3f0ed;
 }
 
-
+.desenhos{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Duas colunas */
+    grid-template-rows: auto auto; /* Duas linhas automáticas */
+    column-gap: 30px; /* Espaço entre colunas */
+    row-gap: 30px; /* Espaço entre linhas */
+    margin: 20px; /* Margem uniforme em todos os lados */
+}
+.desenho1,
+.desenho2,
+.desenho3,
+.desenho4,
+.desenho5,
+.desenho6
+{
+    height: 300px; /* Altura fixa */
+    background-color: #C65A37; /* Cor padrão; você pode definir cores específicas para cada um */
+    border-radius: 40px;
+}
+.vizualizar{
+    margin-left: 19vw;
+    margin-top: 5vh;
+    background-color: transparent;
+    width: 20vh;
+    height: 5vh;
+    border-color: #f3f0ed;
+    border-radius: 3vh;
+    color: #f3f0ed;
+}
 .eventos div{
     max-width: 390px;
     height: 167px;
