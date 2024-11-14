@@ -24,12 +24,12 @@ const Home = () => {
         </div>
       </div>
 
-      <h1 >Em alta  <img src={seta} alt=""  /> </h1>
+      <h1 className='emAlta' >Em alta  <img src={seta} alt=""  /> </h1>
      
       
       <div className='desenhos'>
         <div className='desenho1'>
-        <h1 className='Avisoconteudo'>Aviso conteúdo sensível</h1>
+        <h1 className='Aviso'>Aviso conteúdo sensível</h1>
         <button><a href="/OutroArt">Vizualizar</a></button></div>
         <a href="/OutroArt"><div className='desenho2'></div></a>
         <a href="/OutroArt"><div className='desenho3'></div></a>

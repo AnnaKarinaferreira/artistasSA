@@ -5,6 +5,12 @@ body, html{
     background-color: #f3f0ed;
 }
 
+.emAlta{
+    margin-left: 30px;
+    margin-top: 5rem;
+}
+
+
 .desenhos{
     display: grid;
     grid-template-columns: repeat(2, 1fr); /* Duas colunas */
@@ -31,29 +37,24 @@ body, html{
     border-radius: 40px;
 }
 .vizualizar{
-    margin-left: 19vw;
     margin-top: 5vh;
-    background-color: transparent;
+    background: none;
     width: 20vh;
     height: 5vh;
     border-color: #f3f0ed;
-    border-radius: 3vh;
-    color: #f3f0ed;
+    border-radius: 10px;
+    border-style: solid;
 }
 
 .aviso{
     margin-top: 20%;
     color: #f3f0ed;
+    font-size: medium;
 }
+
 .linkvizu {
     text-decoration: none;
-    color: #C65A37; 
-}
-.vizualizar{
-    border-color:#C65A37;
-    background-color: #ffffff;
-    border-radius: 10px;
-    text-decoration: none;
+    color: #f3f0ed; 
 }
 
 .eventos div{

@@ -26,7 +26,7 @@ const HomeN = () => {
         </div>
       </div>
 
-      <h1 >Em alta  <img src={seta} alt=""  /> </h1>
+      <h1 className='emAlta' >Em alta  <img src={seta} alt=""  /> </h1>
      
       
       <div className='desenhos'>
