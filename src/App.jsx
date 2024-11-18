@@ -11,6 +11,7 @@ import Home from './Components/Home/Home.jsx';
 import HomeN from './Components/Home/HomeN.jsx';
 import OutroArt from './Components/Perfiloutroartista/OutroArt.jsx';
 import PerfilArt from './Components/Perfilartista/PerfilArt.jsx';
+import Trabalhos from './Components/Trabalhos/Trabalhos.jsx';
 
 function App() {
   const [count, setCount] = useState(0);
@@ -25,6 +26,7 @@ function App() {
           <Route path="/Home" element={<Home />} />
           <Route path='/OutroArtista' element={<OutroArt/>}/>
           <Route path='/PerfilArt' element={<PerfilArt/>}/>
+          <Route path='/Trabalhos' element={<Trabalhos/>}/>
         </Routes>
     </Router>
   );
