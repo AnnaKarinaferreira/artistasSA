@@ -35,7 +35,7 @@ const Cadastro = () =>{
  
     return (
        <>
-          <div > {/* Container principal do formulário */}
+          <div className='geral'> {/* Container principal do formulário */}
              <form  onSubmit={handleSubmit}> {/* Formulário com onSubmit */}
                 <div > {/* Container para a seta de voltar */}
                    <img src={voltar} alt="Voltar" className='seta' /> {/* Imagem de voltar */}
