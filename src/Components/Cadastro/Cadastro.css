@@ -9,3 +9,89 @@
     background-color: #962F2F; 
 }
 
+.boxcadastro{
+    background-color: aliceblue;
+    width: 35%;
+    padding-top: 2em;
+    padding-left: 1em;
+    height: 95%;
+    border-radius: 6%;
+}
+
+.linkvoltar{
+    text-decoration: none;
+    color: #C65A37;
+    margin-left: 1em;
+}
+
+
+.titulobemvindo{
+    color: black;
+}
+
+.textobemvindo{
+    color: #C65A37;
+    font-size: 1em;
+    margin-bottom: 2em;
+}
+
+/*inputs aqui */
+
+.email,
+.user,
+.numero,
+.senha,
+.confsenha{
+    margin-bottom: 2px;
+    font-size: 15px;
+}
+.inputemail{
+    border: 2px solid #C65A37; 
+    width: 60%;
+    height: 1.5em;
+    border-radius:0.5em;
+    margin-bottom: 1em;
+}
+
+.inputuser{
+    border: 2px solid #C65A37; 
+    width: 60%;
+    height: 1.5em;
+    border-radius:0.5em;
+    margin-bottom: 1em;
+}
+
+.inputnumero{
+    border: 2px solid #C65A37; 
+    width: 60%;
+    height: 1.5em;
+    border-radius:0.5em;
+    margin-bottom: 1em;
+}
+
+.inputsenha{
+    border: 2px solid #C65A37; 
+    width: 60%;
+    height: 1.5em;
+    border-radius:0.5em;
+    margin-bottom: 1em;
+}
+
+.inputconfsenha{
+    border: 2px solid #C65A37; 
+    width: 60%;
+    height: 1.5em;
+    border-radius:0.5em;
+    margin-bottom: 1em;
+}
+
+.cadastrar{
+    background-color: #8b2131;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 1em;
+    font-size: 16px;
+    margin-top: 3%;
+    margin-left: 34%;
+  }

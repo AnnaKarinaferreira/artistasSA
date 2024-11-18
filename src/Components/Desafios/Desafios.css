@@ -1,0 +1,32 @@
+.desafio1,
+.desafio2,
+.desafio3{
+    margin-top: 8%;
+    width: 90%;
+    margin-left: 3%;
+    height: 15em;
+    padding-top: 5em;
+    border-radius: 3em;
+}
+.desafio1{
+    background-color: #C65A37;
+}
+.desafio2{
+    background-color: #962F2F;
+}
+.desafio3{
+    background-color:#ECC096 ;
+    margin-bottom: 2em;
+}
+.desafiotitulo{
+    font-size: 2em;
+}
+
+.subtitulodesafio{
+    font-size: 1em;
+}
+
+.desafiotitulo,
+.subtitulodesafio {
+    margin-left: 5%;
+}

@@ -29,8 +29,8 @@ const Home = () => {
       
       <div className='desenhos'>
         <div className='desenho1'>
-        <h1 className='Aviso'>Aviso conteúdo sensível</h1>
-        <button><a href="/OutroArt">Vizualizar</a></button></div>
+        <h1 className='aviso'>Aviso conteúdo sensível</h1>
+        <button className='vizualizar'><a href="/OutroArt" className='linkvizu'>Vizualizar</a></button></div>
         <a href="/OutroArt"><div className='desenho2'></div></a>
         <a href="/OutroArt"><div className='desenho3'></div></a>
         <a href="/OutroArt"><div className='desenho4'></div></a>       

@@ -21,7 +21,7 @@ const HeaderLog = () => {
           <input class='pesquisa' type="search" name="" id="" />
         </div>
         <div>
-          <button class='not'><a href="/Login"><img src={not} /></a></button>
+          <button class='not'><a href=""><img src={not} /></a></button>
           <button class='btnPerfil' ><a href="/PerfilArt"><img class='imgPerfil' src={user} /></a></button>
         </div>
     </div>

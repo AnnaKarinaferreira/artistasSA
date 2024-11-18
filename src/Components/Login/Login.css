@@ -1,0 +1,91 @@
+.geral{
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: center;
+    height: 100vh; 
+    padding: 20px; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
+    background-color: #962F2F; 
+}
+
+.linkvoltar{
+    text-decoration: none;
+    color: #C65A37;
+    margin-left: 1em;
+}
+
+.titulobemvindo{
+    color: black;
+}
+
+.textobemvindo{
+    color: #C65A37;
+    font-size: 1em;
+    margin-bottom: 2em;
+}
+
+.boxlogin{
+    background-color: rgb(255, 255, 255);
+    width: 30%;
+    height: 80%;
+    padding-left: 3em;
+    padding-top: 3em;
+    border-radius: 3em;
+}
+
+
+/*parte dos inputs aqui*/
+.email{
+    margin-bottom: 2px;
+    font-size: 20px;
+}
+.inputemail{
+    border: 2px solid #C65A37; 
+    width: 80%;
+    height: 1.5em;
+    border-radius:0.5em;
+    margin-bottom: 2em;
+}
+
+.senha{
+    margin-bottom: 2px;
+    font-size: 20px;
+}
+
+.inputsenha{
+    border: 2px solid #C65A37; 
+    width: 80%;
+    height: 1.5em;
+    border-radius:0.5em;
+}
+
+.lembrarsenha{
+    margin-top: 3%;
+    margin-bottom:3% ;
+}
+
+.esqueceusenha{
+    margin-left: 15%;
+    margin-bottom: 3%;
+}
+
+.continuar{
+  background-color: #8b2131;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  margin-left: 25%;
+  margin-bottom: 5%;
+}
+
+.textocontinuar{
+    text-decoration: none;
+    color: #fff;
+}
+.linkcadastro,
+.linkrecuperar{
+    color: #C65A37;
+}

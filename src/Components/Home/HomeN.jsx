@@ -32,12 +32,12 @@ const HomeN = () => {
       <div className='desenhos'>
         <div className='desenho1'>
         <h1 className='aviso'>Aviso conteúdo sensível</h1>
-        <button className='vizualizar'><a href="/OutroArt" className='linkvizu'>Vizualizar</a></button></div>
-        <a href="/OutroArt"><div className='desenho2'></div></a>
-        <a href="/OutroArt"><div className='desenho3'></div></a>
-        <a href="/OutroArt"><div className='desenho4'></div></a>       
-        <a href="/OutroArt"><div className='desenho5'></div></a>
-        <a href="/OutroArt"><div className='desenho6'></div></a>
+        <button className='vizualizar'><a href="/Cadastro" className='linkvizu'>Vizualizar</a></button></div>
+        <a href="/Cadastro"><div className='desenho2'></div></a>
+        <a href="/Cadastro"><div className='desenho3'></div></a>
+        <a href="/Cadastro"><div className='desenho4'></div></a>       
+        <a href="/Cadastro"><div className='desenho5'></div></a>
+        <a href="/Cadastro"><div className='desenho6'></div></a>
       </div>
 
         </>
