@@ -15,38 +15,28 @@
     margin-left: 1em;
 }
 
-.titulobemvindo {
-    color: black;
-}
-
-.textobemvindo {
-    color: #C65A37;
-    font-size: 1em;
-    margin-bottom: 2em;
-}
-
 .boxlogin {
-    background-color: rgb(255, 255, 255);
-    width: 25%;
-    height: 60%;
-    padding-left: 4em;
-    padding-top: 3em;
-    border-radius: 3em;
+    background-color: #F3F0ED;
+    width: 65vh;
+    height: fit-content;
+    padding: 40px;
+    border-radius: 20px;
+    text-align: center;
 }
 
 /* Parte dos inputs aqui */
 .email, .senha {
     margin-bottom: 2px;
-    font-size: 20px !important;
 }
 
-.inputemail, .inputsenha {
+/*.inputemail, .inputsenha {
     border: 2px solid #C65A37; 
-    width: 80%; /* Altere aqui para mudar a largura */
-    height: 2.5em !important; /* Altere aqui para mudar a altura */
+    width: 80%; /* Altere aqui para mudar a largura 
+    height: 2.5em !important; /* Altere aqui para mudar a altura 
     border-radius: 0.5em;
     margin-bottom: 2em;
-}
+    background-color: transparent;
+}*/
 
 .lembrarsenha {
     margin-top: 3%;
@@ -59,20 +49,23 @@
 }
 
 .continuar {
-    background-color: #8b2131;
-    color: #fff;
+    border-radius: 30px;
+    width: 190px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    height: 45px;
+    text-align: center; 
+    outline: none;
+    background-color: #962F2F;
     border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    font-size: 16px;
-    margin-left: 25%;
-    margin-bottom: 5%;
+    font-size: 15px;
+    color: #F3F0ED;
 }
 
-.textocontinuar {
+/*.textocontinuar {
     text-decoration: none;
     color: #fff;
-}
+}*/
 
 .linkcadastro,
 .linkrecuperar {

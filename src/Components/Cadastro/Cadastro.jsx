@@ -35,6 +35,7 @@ const Cadastro = () => {
 
    return (
       <>
+         <div className='geral'>
          <div className='Conteiner'> {/* Container principal do formulário */}
             <form className="formCadastro" onSubmit={handleSubmit}> {/* Formulário com onSubmit */}
                <div className='alinhamento1'> {/* Container para a seta de voltar */}
@@ -72,10 +73,11 @@ const Cadastro = () => {
                      Lembre de mim
                   </label> <br />
                </div>
-               <button className='BTNcontinuarCadastro' type="submit">Cadastrar</button> {/* Botão para submeter o formulário */}
+               <button className='BTNcontinuar' type="submit">Cadastrar</button> {/* Botão para submeter o formulário */}
                {message && <p>{message}</p>} {/* Exibe a mensagem de feedback se existir */}
                <p>Já possuí uma conta conosco? <a href="/Login" className='linklogin'>Faça login aqui</a></p>
             </form>
+         </div>
          </div>
       </>
    );
