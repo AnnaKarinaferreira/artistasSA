@@ -18,7 +18,7 @@ const HeaderLog = () => {
           <button  class='btnETD'><p><a class='linkETD' href="/Desafios">Desafios</a></p></button>        
         </div>
         <div>
-          <input class='pesquisa' type="search" name="" id="" />
+          <input class='pesquisa' type="Search" name="" id="" />
         </div>
         <div>
           <button class='not'><a href=""><img src={not} /></a></button>
