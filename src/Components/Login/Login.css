@@ -1,4 +1,4 @@
-.geral{
+.geral {
     display: flex;
     flex-direction: column;
     align-items: center; 
@@ -9,83 +9,101 @@
     background-color: #962F2F; 
 }
 
-.linkvoltar{
+.linkvoltar {
     text-decoration: none;
     color: #C65A37;
     margin-left: 1em;
 }
 
-.titulobemvindo{
+.titulobemvindo {
     color: black;
 }
 
-.textobemvindo{
+.textobemvindo {
     color: #C65A37;
     font-size: 1em;
     margin-bottom: 2em;
 }
 
-.boxlogin{
+.boxlogin {
     background-color: rgb(255, 255, 255);
-    width: 30%;
-    height: 80%;
-    padding-left: 3em;
+    width: 25%;
+    height: 60%;
+    padding-left: 4em;
     padding-top: 3em;
     border-radius: 3em;
 }
 
-
-/*parte dos inputs aqui*/
-.email{
+/* Parte dos inputs aqui */
+.email, .senha {
     margin-bottom: 2px;
-    font-size: 20px;
+    font-size: 20px !important;
 }
-.inputemail{
+
+.inputemail, .inputsenha {
     border: 2px solid #C65A37; 
-    width: 80%;
-    height: 1.5em;
-    border-radius:0.5em;
+    width: 80%; /* Altere aqui para mudar a largura */
+    height: 2.5em !important; /* Altere aqui para mudar a altura */
+    border-radius: 0.5em;
     margin-bottom: 2em;
 }
 
-.senha{
-    margin-bottom: 2px;
-    font-size: 20px;
-}
-
-.inputsenha{
-    border: 2px solid #C65A37; 
-    width: 80%;
-    height: 1.5em;
-    border-radius:0.5em;
-}
-
-.lembrarsenha{
+.lembrarsenha {
     margin-top: 3%;
-    margin-bottom:3% ;
+    margin-bottom: 3%;
 }
 
-.esqueceusenha{
+.esqueceusenha {
     margin-left: 15%;
     margin-bottom: 3%;
 }
 
-.continuar{
-  background-color: #8b2131;
-  color: #fff;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  font-size: 16px;
-  margin-left: 25%;
-  margin-bottom: 5%;
+.continuar {
+    background-color: #8b2131;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-left: 25%;
+    margin-bottom: 5%;
 }
 
-.textocontinuar{
+.textocontinuar {
     text-decoration: none;
     color: #fff;
 }
+
 .linkcadastro,
-.linkrecuperar{
+.linkrecuperar {
     color: #C65A37;
+}
+
+/* Media Queries para Responsividade */
+@media (max-width: 768px) {
+    .boxlogin {
+        width: 80%; /* Aumenta a largura em telas menores */
+        height: auto; /* Permite que a altura se ajuste automaticamente */
+        padding: 2em; /* Reduz o padding */
+    }
+
+    .inputemail, .inputsenha {
+        width: 90%; /* Aumenta a largura dos inputs em telas menores */
+        height: 2em; /* Ajusta a altura */
+    }
+
+    .continuar {
+        margin-left: 10%; /* Ajusta a margem em telas menores */
+        width: 80%; /* Aumenta a largura do botão */
+    }
+}
+
+@media (max-width: 480px) {
+    .boxlogin {
+        padding: 1.5em; /* Ajusta o padding para telas muito pequenas */
+    }
+
+    .inputemail, .inputsenha {
+        height: 1.8em; /* Ajusta a altura para telas muito pequenas */
+    }
 }

@@ -1,134 +1,141 @@
-.geral {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+* {
+    padding: 0;
+    margin: 0;
+}
+.linklogin{
+    color: blue;
+}
+html, body {
+    background-color: #962F2F !important;
+    width: 100vw;
     height: 100vh;
-    padding: 20px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    background-color: #962F2F;
 }
 
-.boxcadastro {
-    background-color: aliceblue;
-    width: 35%;
-    padding-top: 2em;
-    padding-left: 1em;
-    height: 95%;
-    border-radius: 6%;
-    box-sizing: border-box;
-}
-
-.linkvoltar {
+.linkhomel a{
     text-decoration: none;
+    color: #F3F0ED;
+    font-size: 20px;
+}
+
+.titulo {
+    margin-top: 17px !important; 
+    margin-bottom: 10px !important; 
+    margin-left: 1px !important;
+    font-size: 25px;
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+.descricao {
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 15px;
+    font-style: italic;
+    margin-bottom: 15px !important;
     color: #C65A37;
-    margin-left: 1em;
 }
 
-.titulobemvindo {
-    color: black;
+.Conteiner {
+    margin-left: 4vh;
+    background-color: #F3F0ED;
+    width: 65vh;
+    height: fit-content;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    border-radius: 20px; 
+    margin-left: calc(40% - 140px); 
+    text-align: center;
+    padding: 40px;
+    margin-top: 15em;
 }
 
-.textobemvindo {
-    color: #C65A37;
-    font-size: 1em;
-    margin-bottom: 2em;
+.alinhamento1 {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
 }
 
-.email,
-.inputusuario,
-.numero,
-.senha,
-.confsenha {
-    margin-bottom: 2px;
+.seta {
+    margin-right: 8px;
+    margin-top: 5px;
+    width: 14px;
+}
+
+.voltar{
+    font-size:  1vw;
+    color: #962F2F;
+    text-decoration: none;
+
+}
+
+.voltar, .titulo, .descricao, .input1, .input2, .input3, .input6, .recall-forget{
+    text-align: left;
+    margin: 0;
+    margin-top: 5px; 
+    padding-left: 0;
+    font-size: 15px;
+}
+.BTNcontinuarCadastro {
+    border-radius: 30px;
+    width: 190px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    height: 45px;
+    text-align: center; 
+    outline: none;
+    background-color: #962F2F;
+    border: none;
     font-size: 15px;
 }
 
-.inputemail,
-.inputusuario,
-.inputnumero,
-.inputsenha,
-.inputconfsenha {
-    border: 2px solid #C65A37;
-    width: 60%;
-    height: 1.5em;
-    border-radius: 0.5em;
-    margin-bottom: 1em;
+.BTNcontinuarCadastro a{
+    text-decoration: none;
+    color: white;
+}
+
+.signup-link{
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    justify-content: center;
+    gap: 12px;
+}
+
+.signup-link p{
+    font-size: 15px;
+    font-weight: 400;
+    color: #000;
+}
+
+.signup-link a:visited, .signup-link a:link{
+    font-size: 15px;
+    font-weight: 400;
+    color: #C65A37;
+}
+
+
+input[type="text"], input[type="email"], input[type="number"], input[type="password"] {
+    width: 100%;
     box-sizing: border-box;
+    height: 35px;
+    border-color: #ECC096;
+    border-radius: 8px;
+    outline: none;
+    border: 2px solid #ECC096; 
+    box-shadow: none; 
+    background-color: transparent;
 }
 
-.cadastrar {
-    background-color: #8b2131;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 1em;
-    font-size: 16px;
-    margin-top: 3%;
-    margin-left: 34%;
-    cursor: pointer;
+.senhaCadastro{
+    display: flex;
+    flex-direction: row;
+    gap: 25px;
 }
 
-@media screen and (max-width: 768px) {
-    .boxcadastro {
-        width: 80%;
-        padding-left: 2em;
-    }
-
-    .inputemail,
-    .inputusuario,
-    .inputnumero,
-    .inputsenha,
-    .inputconfsenha {
-        width: 80%;
-    }
-
-    .cadastrar {
-        margin-left: 10%;
-        width: 80%;
-        padding: 12px 20px;
-        font-size: 14px;
-    }
-
-    .titulobemvindo {
-        font-size: 1.2em;
-    }
-
-    .textobemvindo {
-        font-size: 0.9em;
-        margin-bottom: 1.5em;
-    }
+.senhaCadastro div{
+    text-align: start;
+    width: 240px;
+    
 }
 
-@media screen and (max-width: 480px) {
 
-    /* Para telas menores, como smartphones */
-    .boxcadastro {
-        width: 90%;
-        padding-left: 1em;
-    }
 
-    .inputemail,
-    .inputusuario,
-    .inputnumero,
-    .inputsenha,
-    .inputconfsenha {
-        width: 90%;
-    }
-
-    .cadastrar {
-        margin-left: 5%;
-        width: 90%;
-        padding: 12px 18px;
-        font-size: 13px;
-    }
-
-    .titulobemvindo {
-        font-size: 1em;
-    }
-
-    .textobemvindo {
-        font-size: 0.85em;
-        margin-bottom: 1em;
-    }
-}

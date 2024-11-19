@@ -1,26 +1,26 @@
-body, html{
+body,
+html {
     margin: 0;
     padding: 0;
     width: 100%;
     background-color: #f3f0ed;
 }
 
-.emAlta{
+.emAlta {
     margin-left: 30px;
     margin-top: 5rem;
 }
 
-
-.desenhos{
+.desenhos {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Duas colunas */
-    grid-template-rows: auto auto; /* Duas linhas automáticas */
-    column-gap: 30px; /* Espaço entre colunas */
-    row-gap: 30px; /* Espaço entre linhas */
-    margin: 20px; /* Margem uniforme em todos os lados */
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto auto;
+    column-gap: 30px;
+    row-gap: 30px;
+    margin: 20px;
 }
 
-.desenho1{
+.desenho1 {
     text-align: center;
     align-items: center;
 }
@@ -30,23 +30,29 @@ body, html{
 .desenho3,
 .desenho4,
 .desenho5,
-.desenho6
-{
-    height: 300px; /* Altura fixa */
-    background-color: #C65A37; /* Cor padrão; você pode definir cores específicas para cada um */
+.desenho6 {
+    height: 350px;
+    background-color: #C65A37;
     border-radius: 40px;
 }
-.vizualizar{
-    margin-top: 5vh;
+
+.vizualizar {
+    margin-top: 3vh;
     background: none;
     width: 20vh;
     height: 5vh;
     border-color: #f3f0ed;
     border-radius: 10px;
     border-style: solid;
+    transition-duration: 0.4s;
 }
 
-.aviso{
+.vizualizar:hover {
+    background-color: #e9a28b;
+    color: rgb(0, 0, 0);
+}
+
+.aviso {
     margin-top: 20%;
     color: #f3f0ed;
     font-size: medium;
@@ -54,10 +60,10 @@ body, html{
 
 .linkvizu {
     text-decoration: none;
-    color: #f3f0ed; 
+    color: #f3f0ed;
 }
 
-.eventos div{
+.eventos div {
     max-width: 390px;
     height: 167px;
     padding-left: 28px;
@@ -73,7 +79,7 @@ body, html{
     margin-top: 4em;
 }
 
-.eventos{
+.eventos {
     display: flex;
     justify-content: left;
     gap: 2em;
@@ -81,4 +87,40 @@ body, html{
     margin-left: 3em;
     margin-top: 5%;
     color: #f3f0ed;
+}
+
+@media (max-width: 768px) {
+    .desenhos {
+        grid-template-columns: 1fr;
+        margin: 10px;
+    }
+
+    .eventos {
+        flex-direction: column;
+        margin-left: 0;
+        align-items: center;
+    }
+
+    .eventos div {
+        max-width: 100%;
+        margin-top: 2em;
+    }
+
+    .vizualizar {
+        width: 50vh;
+        height: 7vh;
+
+    }
+}
+
+@media (max-width: 480px) {
+    .emAlta {
+        margin-left: 15px;
+
+    }
+
+    .aviso {
+        font-size: small;
+
+    }
 }

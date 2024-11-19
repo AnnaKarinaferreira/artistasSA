@@ -26,7 +26,7 @@ const Cadastro = () => {
          setMessage("Cadastro realizado com sucesso!"); // Define a mensagem de sucesso se as senhas coincidirem
          // Redireciona para a página de Login após 2 segundos
          setTimeout(() => {
-            navigate('/Home'); // Navega para a rota "/Login"
+            navigate('/HomeL'); // Navega para a rota "/Login"
          }, 2000); // Tempo em milissegundos
       }
       // Log para depuração, exibindo os dados do formulário
@@ -35,52 +35,50 @@ const Cadastro = () => {
 
    return (
       <>
-         <div className='geral'> {/* Container principal do formulário */}
-            <div className='boxcadastro'>
-               <form onSubmit={handleSubmit}> {/* Formulário com onSubmit */}
-                  <div > {/* Container para a seta de voltar */}
-                     <img src={voltar} alt="Voltar" className='seta' /> {/* Imagem de voltar */}
-                     <a href="/" className='linkvoltar'>Voltar</a> {/* Link de voltar */}
-                  </div>
-                  <h1 className='titulobemvindo' >Seja bem-vindo ao Brighid!</h1> {/* Título de boas-vindas */}
-                  <h1 className='textobemvindo' >Cadastre-se para se juntar à nossa comunidade de artistas!</h1> {/* Descrição do cadastro */}
+         <div className='Conteiner'> {/* Container principal do formulário */}
+            <form className="formCadastro" onSubmit={handleSubmit}> {/* Formulário com onSubmit */}
+               <div className='alinhamento1'> {/* Container para a seta de voltar */}
+                  <img src={voltar} alt="Voltar" className='seta' /> {/* Imagem de voltar */}
+                  <a href="/" className='voltar'>voltar</a> {/* Link de voltar */}
+               </div>
+               <h1 className='titulo'>Seja bem-vindo ao Brighid!</h1> {/* Título de boas-vindas */}
+               <h1 className='descricao'>Cadastre-se para se juntar à nossa comunidade de artistas!</h1> {/* Descrição do cadastro */}
 
-                  <div className='email'>
-                     Seu email <br />
-                     <input type="email" required onChange={(e) => setEmail(e.target.value)}  className='inputemail'/> {/* Campo para o email */}
+               <div className='input2'>
+                  Seu email <br />
+                  <input type="email" required onChange={(e) => setEmail(e.target.value)} /> {/* Campo para o email */}
+               </div>
+               <div className='input2'>
+                  Nome de usuário <br />
+                  <input type="text" required onChange={(e) => setUsername(e.target.value)} /> {/* Campo para o nome de usuário */}
+               </div>
+               <div className='input3'>
+                  Número de telefone <br />
+                  <input type="number" required onChange={(e) => setPhone(e.target.value)} /> {/* Campo para o telefone */}
+               </div>
+               <div className='senhaCadastro'> {/* Container para os campos de senha */}
+                  <div>
+                     <label htmlFor="senha">Senha</label> {/* Label para o campo de senha */}
+                     <input type="password" name="senha" id="senha" required onChange={(e) => setPassword(e.target.value)} /> {/* Campo de senha */}
                   </div>
-                  <div className='usuario'>
-                     Nome de usuário <br />
-                     <input type="text" required onChange={(e) => setUsername(e.target.value)} className='inputusuario'/> {/* Campo para o nome de usuário */}
+                  <div>
+                     <label htmlFor="confsenha">Confirmar senha</label> {/* Label para o campo de confirmação de senha */}
+                     <input type="password" name="confsenha" id="confsenha" required onChange={(e) => setConfSenha(e.target.value)} /> {/* Campo de confirmação de senha */}
                   </div>
-                  <div className='numero'>
-                     Número de telefone <br />
-                     <input type="tel" required onChange={(e) => setPhone(e.target.value)}  className='inputnumero'/> {/* Campo para o telefone */}
-                  </div>
-                  <div > {/* Container para os campos de senha */}
-                     <div className='senha'>
-                        <label htmlFor="senha">Senha</label> <br />{/* Label para o campo de senha */}
-                        <input className='inputsenha' type="password" name="senha" id="senha" required onChange={(e) => setPassword(e.target.value)} /> {/* Campo de senha */}
-                     </div>
-                     <div className='confsenha'>
-                        <label htmlFor="confsenha" >Confirmar senha</label> <br /> {/* Label para o campo de confirmação de senha */}
-                        <input className='inputconfsenha' type="password" name="confsenha" id="confsenha" required onChange={(e) => setConfSenha(e.target.value)} /> {/* Campo de confirmação de senha */}
-                     </div>
-                  </div>
-                  <div> {/* Container para a opção de lembrete */}
-                     <label>
-                        <input type="checkbox" /> {/* Checkbox para "Lembre de mim" */}
-                        Lembre de mim
-                     </label> <br />
-                  </div>
-                  <button type="submit" className='cadastrar'>Cadastrar</button> {/* Botão para submeter o formulário */}
-                  {message && <p>{message}</p>} {/* Exibe a mensagem de feedback se existir */}
-               </form>
-            </div>
+               </div>
+               <div className='recall-forget'> {/* Container para a opção de lembrete */}
+                  <label>
+                     <input type="checkbox" /> {/* Checkbox para "Lembre de mim" */}
+                     Lembre de mim
+                  </label> <br />
+               </div>
+               <button className='BTNcontinuarCadastro' type="submit">Cadastrar</button> {/* Botão para submeter o formulário */}
+               {message && <p>{message}</p>} {/* Exibe a mensagem de feedback se existir */}
+               <p>Já possuí uma conta conosco? <a href="/Login" className='linklogin'>Faça login aqui</a></p>
+            </form>
          </div>
       </>
    );
 };
 
-
-export default Cadastro;
+export default Cadastro; // Exporta o componente Cadastro

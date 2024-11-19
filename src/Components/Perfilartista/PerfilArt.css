@@ -1,22 +1,27 @@
 
+.geralartistas{
+
+}
+
 .perfilartistacorpo{
     margin-left: 3%;
-    margin-top: 10%;
+    margin-top: 7%;
     width: 30%;
+    padding-left: 1%;
     padding-right: 3%;
     padding-top: 1em;
     padding-bottom: 1em;
     background-color: rgb(221, 221, 160);
 }
 .imgUser{
-    margin-left: 2em;
+    margin-left: 6em;
 }
 .nomeart{
-    margin-left: 3em;   
+    margin-left: 6em;   
 }
 .user{
     opacity: 0.5; 
-    margin-left: 9.5em;
+    margin-left: 13em;
 }
 
 
@@ -83,3 +88,6 @@
     height: auto; 
     margin-right: 10px; 
 }
+
+
+
