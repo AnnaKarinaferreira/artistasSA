@@ -49,9 +49,9 @@ const Cadastro = () => {
                      Seu email <br />
                      <input type="email" required onChange={(e) => setEmail(e.target.value)}  className='inputemail'/> {/* Campo para o email */}
                   </div>
-                  <div className='user'>
+                  <div className='usuario'>
                      Nome de usuário <br />
-                     <input type="text" required onChange={(e) => setUsername(e.target.value)} className='inputuser'/> {/* Campo para o nome de usuário */}
+                     <input type="text" required onChange={(e) => setUsername(e.target.value)} className='inputusuario'/> {/* Campo para o nome de usuário */}
                   </div>
                   <div className='numero'>
                      Número de telefone <br />

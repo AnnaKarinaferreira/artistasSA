@@ -1,91 +1,63 @@
-.geral{
+.geral {
     display: flex;
     flex-direction: column;
-    align-items: center; 
+    align-items: center;
     justify-content: center;
-    height: 100vh; 
-    padding: 20px; 
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
-    background-color: #962F2F; 
+    height: 100vh;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    background-color: #962F2F;
 }
 
-.boxcadastro{
+.boxcadastro {
     background-color: aliceblue;
     width: 35%;
     padding-top: 2em;
     padding-left: 1em;
     height: 95%;
     border-radius: 6%;
+    box-sizing: border-box;
 }
 
-.linkvoltar{
+.linkvoltar {
     text-decoration: none;
     color: #C65A37;
     margin-left: 1em;
 }
 
-
-.titulobemvindo{
+.titulobemvindo {
     color: black;
 }
 
-.textobemvindo{
+.textobemvindo {
     color: #C65A37;
     font-size: 1em;
     margin-bottom: 2em;
 }
 
-/*inputs aqui */
-
 .email,
-.user,
+.inputusuario,
 .numero,
 .senha,
-.confsenha{
+.confsenha {
     margin-bottom: 2px;
     font-size: 15px;
 }
-.inputemail{
-    border: 2px solid #C65A37; 
+
+.inputemail,
+.inputusuario,
+.inputnumero,
+.inputsenha,
+.inputconfsenha {
+    border: 2px solid #C65A37;
     width: 60%;
     height: 1.5em;
-    border-radius:0.5em;
+    border-radius: 0.5em;
     margin-bottom: 1em;
+    box-sizing: border-box;
 }
 
-.inputuser{
-    border: 2px solid #C65A37; 
-    width: 60%;
-    height: 1.5em;
-    border-radius:0.5em;
-    margin-bottom: 1em;
-}
-
-.inputnumero{
-    border: 2px solid #C65A37; 
-    width: 60%;
-    height: 1.5em;
-    border-radius:0.5em;
-    margin-bottom: 1em;
-}
-
-.inputsenha{
-    border: 2px solid #C65A37; 
-    width: 60%;
-    height: 1.5em;
-    border-radius:0.5em;
-    margin-bottom: 1em;
-}
-
-.inputconfsenha{
-    border: 2px solid #C65A37; 
-    width: 60%;
-    height: 1.5em;
-    border-radius:0.5em;
-    margin-bottom: 1em;
-}
-
-.cadastrar{
+.cadastrar {
     background-color: #8b2131;
     color: #fff;
     border: none;
@@ -94,4 +66,69 @@
     font-size: 16px;
     margin-top: 3%;
     margin-left: 34%;
-  }
+    cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+    .boxcadastro {
+        width: 80%;
+        padding-left: 2em;
+    }
+
+    .inputemail,
+    .inputusuario,
+    .inputnumero,
+    .inputsenha,
+    .inputconfsenha {
+        width: 80%;
+    }
+
+    .cadastrar {
+        margin-left: 10%;
+        width: 80%;
+        padding: 12px 20px;
+        font-size: 14px;
+    }
+
+    .titulobemvindo {
+        font-size: 1.2em;
+    }
+
+    .textobemvindo {
+        font-size: 0.9em;
+        margin-bottom: 1.5em;
+    }
+}
+
+@media screen and (max-width: 480px) {
+
+    /* Para telas menores, como smartphones */
+    .boxcadastro {
+        width: 90%;
+        padding-left: 1em;
+    }
+
+    .inputemail,
+    .inputusuario,
+    .inputnumero,
+    .inputsenha,
+    .inputconfsenha {
+        width: 90%;
+    }
+
+    .cadastrar {
+        margin-left: 5%;
+        width: 90%;
+        padding: 12px 18px;
+        font-size: 13px;
+    }
+
+    .titulobemvindo {
+        font-size: 1em;
+    }
+
+    .textobemvindo {
+        font-size: 0.85em;
+        margin-bottom: 1em;
+    }
+}
