@@ -1,5 +1,5 @@
-import { sql } from './db.js'
-
+import { sql } from './db.js' //importando o database
+//tabela de usuarios
 sql`
   CREATE TABLE usuario (
     id_usuario INT PRIMARY KEY,
@@ -14,9 +14,9 @@ sql`
 );
 
 `.then(() => {
-  console.log('tabela criada');
+  console.log('tabela criada'); //aqui verifica se esta rodando a tabela, se foi criada
 })
-
+//tabela de posts
 sql`
   id_post INT PRIMARY KEY ,
   titulo VARCHAR(30) NOT NULL,
@@ -30,5 +30,5 @@ sql`
 );
 
 `.then(() => {
-  console.log('tabela criada');
+  console.log('tabela criada'); //aqui verifica se esta rodando a tabela, se foi criada
 })

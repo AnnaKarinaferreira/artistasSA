@@ -1,10 +1,10 @@
 
 import { fastify } from 'fastify'
 import cors from '@fastify/cors'
-import { FrangoDoGAll } from './database-postgres.js'
+import { usuarioAll } from './database-postgres.js'
 
 const server = fastify();
-const databasePostgres = new FrangoDoGAll;
+const databasePostgres = new usuarioAll;
 
 // CORS
 server.register(cors, {
@@ -15,7 +15,7 @@ server.register(cors, {
 // ENDPOINTS (CRUD):
 
 // CREATE
-server.post('/frangodog', async (request, reply) => {
+server.post('/usuario', async (request, reply) => {
     const body = request.body;
     console.log(body);
 
@@ -29,16 +29,16 @@ server.post('/frangodog', async (request, reply) => {
         error.password = 'Faltou a senha'
     }
 
-    if(!body.profissao){
-        error.profissao = 'Faltou a profissao'
+    if(!body.email){
+        error.email = 'Faltou a email'
     }
 
-    if(!body.earning){
-        error.earning = 'Faltou os earning'
+    if(!body.telefone){
+        error.telefone = 'Faltou os telefone'
     }
 
-    if(body.name && body.password && body.profissao && body.earning){
-        await databasePostgres.createFrangoDoG(body);
+    if(body.name && body.password && body.email && body.telefone){
+        await databasePostgres.createusuario(body);
         return reply.status(201).send("Fez bom");
     } else {
         return reply.status(400).send(error);
@@ -47,13 +47,13 @@ server.post('/frangodog', async (request, reply) => {
 })
 
 // READE
-server.get('/frangodog', async () => {
-    const users = await databasePostgres.listFrangoDoG();
+server.get('/usuario', async () => {
+    const users = await databasePostgres.listusuario();
     return users;
 });
 
 // UPDATE
-server.put('/frangodog/:id', async (request, reply) => {
+server.put('/usuario/:id', async (request, reply) => {
     const userID = request.params.id;
     const body = request.body;
 
@@ -67,20 +67,20 @@ server.put('/frangodog/:id', async (request, reply) => {
         error.password = 'Faltou a senha'
     }
 
-    if(!body.profissao){
-        error.profissao = 'Faltou a profissao'
+    if(!body.email){
+        error.email = 'Faltou a email'
     }
 
-    if(!body.earning){
-        error.earning = 'Faltou os earning'
+    if(!body.telefone){
+        error.telefone = 'Faltou os telefone'
     }
 
     if(!userID) {
         error.userID = 'Faltou o ID'
     }
 
-    if(body.name && body.password && body.profissao && body.earning  && userID){
-        await databasePostgres.updateFrangoDoG(userID, body);
+    if(body.name && body.password && body.email && body.telefone  && userID){
+        await databasePostgres.updateusuario(userID, body);
         return reply.status(201).send("Fez bom");
     } else {
         return reply.status(400).send(error);
@@ -89,9 +89,9 @@ server.put('/frangodog/:id', async (request, reply) => {
 })
 
 // DELETE
-server.delete('/frangodog/:id', async (request, reply) => {
+server.delete('/usuario/:id', async (request, reply) => {
     const userID = request.params.id;
-    await databasePostgres.deleteFrangoDoG(userID);
+    await databasePostgres.deleteusuario(userID);
 
     return reply.status(204).send();
 })

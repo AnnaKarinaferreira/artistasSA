@@ -12,51 +12,51 @@
     <p>Senha</p>
     <input type="text" name="" id="password">
     <p>Profissão</p>
-    <input type="text" name="" id="profissao">
+    <input type="text" name="" id="email">
     <p>Ganhos</p>
-    <input type="text" name="" id="earning">
+    <input type="text" name="" id="telefone">
     
-    <button onclick="criarFrangoDoG()">
+    <button onclick="criarusuario()">
         Cadastrar
     </button>
 
-    <p id="frangoDoG"></p>
+    <p id="usuario"></p>
 
     <script>
-        async function pegarFrangoDoG () {
-            const resposta = await fetch('http://localhost:3333/frangodog', {
+        async function pegarusuario () {
+            const resposta = await fetch('http://localhost:3333/usuario', {
                 method: 'GET'
             })
 
-            const frangoDoGs = await resposta.json();
-            console.log(frangoDoGs);
-            const frangoDoG = document.getElementById('frangoDoG');
-            frangoDoG.innerHTML = frangoDoGs[0].name;
+            const usuarios = await resposta.json();
+            console.log(usuarios);
+            const usuario = document.getElementById('usuario');
+            usuario.innerHTML = usuarios[0].name;
 
         };
-        pegarFrangoDoG();
+        pegarusuario();
 
-        async function criarFrangoDoG () {
+        async function criarusuario () {
             const name = document.getElementById('name').value;
             const password = document.getElementById('password').value;
-            const profissao = document.getElementById('profissao').value;
-            const earning = document.getElementById('earning').value;
+            const email = document.getElementById('email').value;
+            const telefone = document.getElementById('telefone').value;
 
-            const frangoDoG = {
+            const usuario = {
                 "name": name,
                 "password": password,
-                "profissao": profissao,
-                "earning": earning
+                "email": email,
+                "telefone": telefone
             }
-            const repota = await fetch('http://localhost:3333/frangodog', {
+            const repota = await fetch('http://localhost:3333/usuario', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify(frangoDoG) 
+                body: JSON.stringify(usuario) 
             });
             
-            await pegarFrangoDoG();
+            await pegarusuario();
         }
     </script>
 </body>
