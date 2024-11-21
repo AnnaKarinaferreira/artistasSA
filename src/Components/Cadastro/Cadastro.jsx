@@ -26,8 +26,8 @@ const Cadastro = () => {
          setMessage("Cadastro realizado com sucesso!"); // Define a mensagem de sucesso se as senhas coincidirem
          // Redireciona para a página de Login após 2 segundos
          setTimeout(() => {
-            navigate('/HomeL'); // Navega para a rota "/Login"
-         }, 2000); // Tempo em milissegundos
+            navigate('/Home'); // Navega para a rota "/Login"
+         }, 1000); // Tempo em milissegundos
       }
       // Log para depuração, exibindo os dados do formulário
       console.log({ email, username, phone, password });

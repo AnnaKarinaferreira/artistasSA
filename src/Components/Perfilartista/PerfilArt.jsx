@@ -24,8 +24,8 @@ const PerfilArt = () => {
             <p className="user">user</p>
           </div>
           <div>
-            <p>Seguidores: x</p>
-            <p>Seguindo: x</p>
+            <p>Seguidores: xxx</p>
+            <p>Seguindo: xx</p>
             <div className="alinha1">
               <img src={work} className="work" /> <p>Trabalho/Cargo</p>
             </div>
