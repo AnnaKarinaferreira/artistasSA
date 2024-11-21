@@ -1,22 +1,16 @@
 {
-  "name": "api-node-3b",
+  "dependencies": {
+    "express": "^4.21.1",
+    "pg": "^8.13.1"
+  },
+  "name": "backend",
   "version": "1.0.0",
-  "main": "server.js",
-  "type": "module",
+  "main": "db.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "node --watch server.js",
-    "start": "nodemon index.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "@fastify/cors": "^9.0.1",
-    "dotenv": "^16.4.5",
-    "fastify": "^4.28.1",
-    "nodemon": "^3.1.7",
-    "postgres": "^3.4.4"
-  },
   "description": ""
 }
