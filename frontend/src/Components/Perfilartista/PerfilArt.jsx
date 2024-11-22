@@ -20,8 +20,9 @@ const PerfilArt = () => {
 
           <div>
             <img src={user} alt="user" className="imgUser" />
-            <h2 className="nomeart">Nome do artista</h2>
-            <p className="user">user</p>
+            <h2 className="nomeart">Artista:</h2>
+            <p className="user">Nome do usuário aqui</p>
+            <button className="editar">Editar</button>
           </div>
           <div>
             <p>Seguidores: xxx</p>
@@ -34,9 +35,8 @@ const PerfilArt = () => {
             </div>
             <p>
               Nascido em uma cidade costeira, desenvolvi uma paixão pela
-              pintura, explorando a natureza ao <br />
-              meu redor. Com um estilo vibrante que mistura realismo e
-              abstração, já fui premiado e expus em diversas galerias.
+              pintura, explorando a natureza ao 
+              meu redor.
             </p>
             <div className="caixas">
               <div className="caixa1">
@@ -53,9 +53,9 @@ const PerfilArt = () => {
             </div>
             <div className="interesses">
               <p className="interesse">Interesse em:</p>
-              <button>Freelance</button>
-              <button>Contrato</button>
-              <button>CLT</button>
+              <button className="interessebutton">Freelance</button>
+              <button className="interessebutton1">Contrato</button>
+              <button className="interessebutton">CLT</button>
             </div>
           </div>
         </div>

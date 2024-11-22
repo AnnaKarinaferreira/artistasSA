@@ -5,7 +5,6 @@ import logo from '../../assets/logo 1.png';
 import not from '../../assets/not.png';
 import user from '../../assets/user.png';
 import '../geral.css';
-import index from '../../../../backend/index.js'
 
 const HeaderLog = () => {
   
@@ -19,7 +18,7 @@ const HeaderLog = () => {
           <button  class='btnETD'><p><a class='linkETD' href="/Desafios">Desafios</a></p></button>        
         </div>
         <div>
-          <input class='pesquisa' type="Search" name="" id="" />
+          <input class='pesquisa' type="Search" name="" placeholder='Buscar perfil' id="" />
         </div>
         <div>
           <button class='not'><a href=""><img src={not} /></a></button>

@@ -1,35 +1,54 @@
-
-.geralartistas{
-
-}
-
-.perfilartistacorpo{
-    margin-left: 3%;
-    margin-top: 7%;
+.perfilartistacorpo {
+    margin: 7% 0 0 3%; /* Margem superior e esquerda */
     width: 25%;
-    padding-left: 1%;
-    padding-right: 3%;
-    padding-top: 1em;
-    padding-bottom: 1em;
+    padding: 1em 3% 1em 1%; /* Padding em cima, direita, embaixo e esquerda */
     background-color: transparent;
-    border-color: black;
-    border-width: 2px;
+    border: 2px solid rgb(168, 160, 160);
+    border-radius: 1em;
 }
-.imgUser{
+
+.editar {
+    margin: 3% 37% 3% 37%; /* Margens superior, direita, inferior e esquerda */
+}
+
+.interessebutton {
+    background-color: none;
+    border: 1px solid rgb(168, 160, 160);
+    width: 6em;
+    margin-top: 4%;
+    height: 3em;
+    border-radius: 4em;
+}
+
+.interessebutton1 { /*fiz esta div diferente para dar espaço nos button de interreses e tals*/
+    background-color: none;
+    margin-left: 2%;
+    margin-right: 2%;
+    width: 6em;
+    margin-top: 4%;
+    height: 3em;
+    border-radius: 4em;
+    border: 1px solid rgb(168, 160, 160);
+}
+
+
+.imgUser {
     height: 120px;
-    justify-items: center;
+    display: block; /* Para centralizar a imagem */
+    margin: 0 auto; /* Centraliza a imagem horizontalmente */
 }
-.nomeart{
-    margin-left: 6em; 
-    font-size: larger;  
+
+.nomeart {
+    text-align: center; /* Centraliza o texto */
+    font-size: larger;
 }
-.user{
+
+.user {
     opacity: 0.5; 
-    margin-left: 13em;
+    text-align: center; /* Centraliza o texto */
 }
 
-
-.elementosalinhar{
+.elementosalinhar {
     margin-left: 6%;
 }
 
@@ -42,49 +61,43 @@
 .work,
 .map {
     margin-right: 8px; /* Espaço entre a imagem e o texto */
-    width: 24px; /* Ajuste o tamanho conforme necessário */
-    height: 24px; /* Ajuste o tamanho conforme necessário */
+    width: 24px; /* Tamanho das imagens */
+    height: 24px; 
 }
 
 .caixas {
     display: flex; /* Ativa o Flexbox */
+    justify-content: space-between; /* Espaça igualmente as caixas */
 }
 
 .caixa1, .caixa2 {
-    width: 50%; 
+    width: 48%; 
     height: 10em; 
     margin: 5px; 
-}
-.textocaixa{
-    text-align: center;
-    opacity: 0.5;
-}
-
-.subtextcaixa{
-    font-size: 15px;
-    opacity: 0.5;
-    text-align: center;
-}
-.caixa1 {
-    background-color: rgb(235, 196, 160); 
-}
-
-.caixa2 {
-    background-color: rgb(235, 196, 160); 
-    display: flex;
-    padding-left: 5px;
+    border: 1px solid rgb(168, 160, 160);
+    background-color: none;
+    display: flex; 
     flex-direction: column; 
-    align-items: flex-start; 
+    align-items: center;
+    padding: 10px; 
 }
 
 .textocaixa {
-    margin-bottom: 10px; 
+    text-align: center;
+    opacity: 0.5;
+    margin-bottom: 10px; /* Espaçamento inferior */
+}
+
+.subtextcaixa {
+    font-size: 15px;
+    opacity: 0.5;
+    text-align: center;
 }
 
 .linha1, .linha2 {
     display: flex; 
     justify-content: flex-start; 
-    margin-bottom: 10px;
+    margin-bottom: 10px; /* Espaçamento inferior */
 }
 
 .linha1 img, .linha2 img {
@@ -92,6 +105,4 @@
     height: auto; 
     margin-right: 10px; 
 }
-
-
 
