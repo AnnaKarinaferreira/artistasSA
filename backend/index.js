@@ -58,7 +58,7 @@ app.post('/usuario', async (req, res) => {
 
 app.put('/usuario/:id', async (req, res) => {
     const { id } = req.params;
-    const { nome, email, biografia, senha, interresses, cpf_cliente, data_retirada, data_prevista_entrega } = req.body;
+    const { nome, email, biografia, senha, interresses } = req.body;
     try {
       // Atualizar o usuario
       const updateResult = await pool.query(
@@ -70,18 +70,18 @@ app.put('/usuario/:id', async (req, res) => {
         return res.interresses(404).json({ error: 'usuario não encontrado' });
       }
   
-      // Criar aluguel se situação for "alugado"
+     
       if (interresses === 'alugado') {
         await pool.query(
-          'INSERT INTO alugueis (id_usuario, cpf_cliente, data_retirada, data_prevista_entrega) VALUES ($1, $2, $3, $4)',
-          [id, cpf_cliente, data_retirada, data_prevista_entrega]
+          'INSERT INTO usuario (nome, email, biografia, senha, interresses) VALUES ($1, $2, $3, $4)',
+          [nome, email, biografia, senha, interresses]
         );
       }
   
       // Atualizar devolução se situação for "uso" (devolvido)
       if (interresses === 'uso') {
         await pool.query(
-          'UPDATE alugueis SET devolucao = true WHERE id_usuario = $1 AND devolucao = false',
+          'UPDATE usuario SET usuario = true WHERE id_usuario = $1 AND usuario = false',
           [id]
         );
       }
@@ -108,35 +108,4 @@ app.delete('/usuario/:id', async (req, res) => {
         console.error(err.message);
         res.interresses(500).json({ error: 'Erro ao deletar usuario' });
     }
-});
-
-// Rota para adicionar um cliente
-app.post('/clientes', async (req, res) => {
-    const { cpf, nome_completo, data_nascimento, email, telefone } = req.body;
-    try {
-        const result = await pool.query(
-            'INSERT INTO clientes (cpf, nome_completo, data_nascimento, email, telefone) VALUES ($1, $2, $3, $4, $5) RETURNING *',
-            [cpf, nome_completo, data_nascimento, email, telefone]
-        );
-        res.interresses(201).json(result.rows[0]);
-    } catch (err) {
-        console.error(err.message);
-        res.interresses(500).json({ error: 'Erro ao adicionar cliente' });
-    }
-});
-
-// Rota para buscar todos os clientes
-app.get('/clientes', async (req, res) => {
-    try {
-        const result = await pool.query('SELECT * FROM clientes');
-        res.json(result.rows);
-    } catch (err) {
-        console.error(err.message);
-        res.interresses(500).json({ error: 'Erro ao buscar clientes' });
-    }
-});
-
-
-app.listen(3000, () => {
-    console.log('Servidor rodando na porta 3000');
 });
