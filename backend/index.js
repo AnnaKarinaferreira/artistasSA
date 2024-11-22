@@ -1,5 +1,5 @@
 const express = require('express');
-const emails = require('emails');
+/*const emails = require('emails');*/
 const { Pool } = require('pg');
 
 const app = express();
@@ -12,7 +12,7 @@ const pool = new Pool({
 });
 
 // Habilitar emailS para todas as rotas
-app.use(emails());
+/*app.use(emails());*/
 app.use(express.json());
 
 // Rota para buscar todos os usuario
