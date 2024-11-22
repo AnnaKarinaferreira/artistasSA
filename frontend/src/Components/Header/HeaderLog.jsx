@@ -5,6 +5,7 @@ import logo from '../../assets/logo 1.png';
 import not from '../../assets/not.png';
 import user from '../../assets/user.png';
 import '../geral.css';
+import index from '../../../../backend/index.js'
 
 const HeaderLog = () => {
   
