@@ -19,6 +19,7 @@
     width: 60vw;
     height: 20vh;
     border-radius: 20px;
+    margin-top: 8%;
     position: absolute; /* Posiciona em relação ao container do perfil */
     top: 0;
     right: 0;
@@ -36,21 +37,25 @@
     margin-right: 20px;
 }
 
-/* A div outrodesenho será organizada em linha horizontal */
-.desenhosoutroart {
-    display: flex;
-    flex-direction: row;
-    gap: 20px; /* Espaçamento entre as divs */
-    margin-top: 20px; /* Espaçamento entre a div menuC e os desenhos */
+/* A div desenhosOutroArt será organizada em linha horizontal */
+.desenhosOutroArt {
+    display: flex;           /* Flexbox para alinhar os itens horizontalmente */
+    flex-direction: row;     /* Garante que as divs fiquem em linha */
+    gap: 20px;               /* Espaçamento entre as divs */
+    margin-top: 20px;        /* Espaçamento entre a div menuC e os desenhos */
+    justify-content: flex-start; /* Alinha as divs à esquerda (opcional, já é padrão) */
+    flex-wrap: wrap;         /* Caso o tamanho da tela seja muito pequeno, ele vai quebrar a linha */
 }
 
-/* Estilo para as divs dentro de desenhosoutroart */
+/* Estilo para as divs dentro de desenhosOutroArt */
 .outrodesenho {
-    width: 260px;
-    height: 260px;
+    width: 260px;            /* Largura fixa para cada div */
+    height: 260px;           /* Altura fixa para cada div */
     background-color: #C65A37;
     border-radius: 10px;
+    flex-shrink: 0;          /* Impede que a div encolha caso o espaço seja pequeno */
 }
+
 
 /* Ajuste das imagens de usuário e texto dentro do perfil do artista */
 .imgUser {

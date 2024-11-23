@@ -60,6 +60,7 @@ const PerfilArt = () => {
           </div>
         </div>
       </div>
+     </div>
       <div class='cima'>
                 <div class='retangulo'></div>
                 <div class='menuC'>
@@ -73,7 +74,6 @@ const PerfilArt = () => {
                     <div class='outrodesenho'></div>
                 </div>
             </div>
-      </div>
     </>
   );
 };
