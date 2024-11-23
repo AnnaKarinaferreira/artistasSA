@@ -60,6 +60,19 @@ const PerfilArt = () => {
           </div>
         </div>
       </div>
+      <div class='cima'>
+                <div class='retangulo'></div>
+                <div class='menuC'>
+                    <p class='categorias'>Categoria</p>
+                    <p class='categorias'>Categoria</p>
+                    <p class='categorias'>Competições</p>
+                </div>
+                <div class='desenhosOutroArt'>
+                    <div class='outrodesenho'></div>
+                    <div class='outrodesenho'></div>
+                    <div class='outrodesenho'></div>
+                </div>
+            </div>
       </div>
     </>
   );
