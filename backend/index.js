@@ -1,9 +1,12 @@
 const express = require('express');
 const { Pool } = require('pg');
+const cors = require('cors');
 const multer = require("multer");
 const db = require("./db")
 
-require ("dotenv").config();
+
+const storage = multer.memoryStorage(); // Armazenar arquivos na memória
+const upload = multer({ storage }); // Definindo a variável upload corretamente
 
 const port = process.env.PORT;
 
@@ -16,13 +19,16 @@ const pool = new Pool({
     port: 5432, // Porta padrão do PostgreSQL
 });
 
+app.use(cors());
+app.use(express.json());
+
 // Habilitar emailS para todas as rotas
-/app.use(emails());/
+/*/app.use(emails());/
 app.use(express.urlencoded({extended:true}));
 app.use(express.json());
 
 const storage = multer.memoryStorage();
-const upload = multer({ storage });
+const upload = multer({ storage });*/
 
 // Rota para buscar todos os usuario
 app.get('/usuario', async (req, res) => {
@@ -68,7 +74,7 @@ app.post('/usuario', upload.fields([{name: "imagem", maxCount: 1}]), async (req,
         res.status(500).json({ error: 'Erro ao adicionar usuario' });
     }
 });
-
+//atualizar
 app.put('/usuario/:id', upload.fields([{name: "imagem", maxCount: 1}]), async (req, res) => {
   const { id } = req.params;
   const data = req.body;

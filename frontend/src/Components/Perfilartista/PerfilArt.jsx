@@ -14,6 +14,7 @@ const PerfilArt = () => {
 
     // Declaração dos estados usando useState
    const [titulo, settitulo] = useState("");
+   const [legenda, setLegenda] = useState("");
 
   return (
     <>
@@ -25,7 +26,7 @@ const PerfilArt = () => {
             <h2>Postar novo projeto</h2>
             <form>
                 <label for="titulo">Titulo:</label>
-                <input type="text" id="titulo" required onChange={(e) => settitulo(e.target.value)} />
+                <input type="text" id="titulo" required onChange={(e) => settitulo(e.target.value)}/>
                 <label for="legenda">Legenda:</label>
                 <input type="text" id="legenda" required onChange={(e) => setlegenda(e.target.value)}/>
                 <input type="checkbox" id="filtro_anti_ia" required onChange={(e) => setfiltro_anti_ia(e.target.value)}/>
