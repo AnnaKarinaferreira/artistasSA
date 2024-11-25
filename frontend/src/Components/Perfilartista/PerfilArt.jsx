@@ -14,17 +14,26 @@ const PerfilArt = () => {
   return (
     <>
       <HeaderLog></HeaderLog>
+
         <div id="postarArte">
             <button>fechar</button>
             <h2>Postar novo projeto</h2>
             <form>
-                <label>Titulo:</label>
-                <input type="text"/>
-                <label>Legenda:</label>
-                <input type="text"/>
-                
+                <label for="tituloArt">Titulo:</label>
+                <input type="text" id="tituloArt"/>
+                <label for="legendaArt">Legenda:</label>
+                <input type="text" id="legendaArt"/>
+                <input type="checkbox" id="antiIA" value="anti"/>
+                <label for="antiIA">Filtro anti-IA:</label>
+                <input type="checkbox" id="contSensivel" value="sensivel"/>
+                <label>Contém conteúdo sensível:</label> <br></br>
+                <label for="tags">Tags:</label>
+                <input type="text" id="tags"/>
+                <label for="materiais">Materiais:</label>
+                <input type="text" id="materiais"/>
             </form>
         </div>
+
         <div className="geralartistas">
             <div className="perfilartistacorpo">
                 <div className="elementosalinhar">
@@ -72,7 +81,7 @@ const PerfilArt = () => {
             </div>
             <div className='cima'>
                 <div className='retangulo'></div>
-                <button onClick {() => { document.getElementById('postarArte').style.display='flex'}}>Postar novo projeto</button>
+                <button onClick = {() => { document.getElementById('postarArte').style.display='flex'}} className="btnpostar" >Postar novo projeto</button>
                 <div className='menuC'>
                     <p className='categorias'>Categoria</p>
                     <p className='categorias'>Categoria</p>

@@ -73,7 +73,7 @@ app.put('/usuario/:id', upload.fields([{name: "imagem", maxCount: 1}]), async (r
 
       Object.entries(data).forEach(([key, value], index) => {
           if(value !== null) {
-              setQuery.push(${key} = $${index + 1});
+              setQuery.push(`${key} = $${index + 1}`);
               values.push(value);
           }
       })
@@ -84,7 +84,7 @@ app.put('/usuario/:id', upload.fields([{name: "imagem", maxCount: 1}]), async (r
       values.push(id)
       console.log(setQuery)
       console.log(values)
-      const query = await pool.query(UPDATE usuario SET ${setQuery.join(', ')} WHERE id_usuario = $${setQuery.length + 1} RETURNING *, values);
+      const query = await pool.query(`UPDATE usuario SET ${setQuery.join(', ')} WHERE id_usuario = $${setQuery.length + 1} RETURNING *`, values);
 
       res.json(query.rows[0]);
   } catch (err) {
@@ -218,4 +218,4 @@ app.delete('/post/:id', async (req, res) => {
     }
 })
 
-app.listen(8001, () => console.log(Server rodando em http://localhost:8001\n))
+app.listen(8001, () => console.log('Server rodando em http://localhost:8001\n'))

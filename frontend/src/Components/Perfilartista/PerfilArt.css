@@ -152,4 +152,25 @@
 
 #postarArte{
     display: none;
+    background-color: aqua;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    flex-direction: column;
+    padding: 35px;
+    border-radius: 20px;
 }
+
+#postarArte input{
+    margin-bottom: 12px;
+}
+
+#postarArte h2{
+    margin-bottom: 15px;
+    margin-top: 15px;
+}
+
+
+
