@@ -12,6 +12,24 @@
     gap: 20px;
     position: relative; /* Para ajustar as divs em relação a este container */
 }
+.texteditar{
+    color: #F3F0ED;
+}
+
+.seguidores{
+    margin-top: 2%;
+    margin-bottom: 4%;
+}
+
+.editar{
+    background-color: black !important;
+    width: 6em;
+    height: 2em;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    margin-left: 38%;
+    border-radius: 3em;
+}
 
 /* A div retângulo será posicionada no canto superior direito, ao lado da div perfilartistacorpo */
 .retangulo {
@@ -85,8 +103,14 @@
 /* Icones dentro das divs */
 .work, .map {
     margin-right: 8px; /* Espaço entre a imagem e o texto */
+    margin-bottom: 3%;
     width: 24px; /* Tamanho das imagens */
     height: 24px;
+}
+
+.bio{
+    margin-top: 3%;
+    margin-bottom: 5%;
 }
 
 .caixas {
@@ -104,6 +128,21 @@
     flex-direction: column;
     align-items: center;
     padding: 10px;
+    border-radius: 1em;
+}
+
+.interesses{
+    margin-bottom: 3%;
+    margin-top: 5%;
+}
+.interessebutton1{
+    margin-top: 5%;
+    margin-left: 5%;
+    margin-right: 5%;
+    width: 30%;
+}
+.interessebutton{
+    width: 30%;
 }
 
 .textocaixa {
