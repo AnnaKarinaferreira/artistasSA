@@ -94,18 +94,18 @@ const PerfilArt = () => {
                         <img src={user} alt="user" className="imgUser"/>
                         <h2 className="nomeart">Artista:</h2>
                         <p className="user">Nome do usuário aqui</p>
-                        <button className="editar"><p className="texteditar">Editar</p></button>
+                        <button className="editar">Editar</button>
                     </div>
                     <div>
-                        <p className="seguidores">Seguidores: XX</p>
-                        <p className="seguidores">Seguindo: XX</p>
+                        <p>Seguidores: xxx</p>
+                        <p>Seguindo: xx</p>
                         <div className="alinha1">
                             <img src={work} className="work"/> <p>Trabalho/Cargo</p>
                         </div>
                         <div className="alinha2">
                             <img src={map} className="map"/> <p>Endereço</p>
                         </div>
-                        <p className="bio">
+                        <p>
                             Nascido em uma cidade costeira, desenvolvi uma paixão pela
                             pintura, explorando a natureza ao
                             meu redor.
