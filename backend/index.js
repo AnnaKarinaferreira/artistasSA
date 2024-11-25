@@ -1,13 +1,18 @@
 const express = require('express');
 const { Pool } = require('pg');
 const multer = require("multer");
+const db = require("./db")
+
+require ("dotenv").config();
+
+const port = process.env.PORT;
 
 const app = express();
 const pool = new Pool({
     user: 'postgres', // Substitua pelo seu usuário do PostgreSQL
     host: 'localhost',
     database: 'artistasSA', // Nome da sua database
-    password: 'postgres', // Substitua pela sua senha
+    password: 'senai', // Substitua pela sua senha
     port: 5432, // Porta padrão do PostgreSQL
 });
 
@@ -218,4 +223,4 @@ app.delete('/post/:id', async (req, res) => {
     }
 })
 
-app.listen(8001, () => console.log('Server rodando em http://localhost:8001\n'))
+app.listen(3000, () => console.log('Server rodando em http://localhost:3000\n'))

@@ -10,18 +10,18 @@ const HeaderLog = () => {
   
   return (
     <>
-    <div class='tamanho' id='logado'>
+    <div className='tamanho' id='logado'>
     <img src={logo} alt="logo" />
-        <div class='unsBtn'>
-          <button  class='btnETD'><a class='linkETD' href="/Home">Explorar</a></button>
-          <button  class='btnETD'><p><a class='linkETD' href="/Desafios">Desafios</a></p></button>        
+        <div className='unsBtn'>
+          <button  className='btnETD'><a className='linkETD' href="/Home">Explorar</a></button>
+          <button  className='btnETD'><p><a className='linkETD' href="/Desafios">Desafios</a></p></button>        
         </div>
         <div>
-          <input class='pesquisa' type="Search" name="" placeholder='Buscar perfil' id="" />
+          <input className='pesquisa' type="Search" name="" placeholder='Buscar perfil' id="" />
         </div>
         <div>
-          <button class='not'><a href=""><img src={not} /></a></button>
-          <button class='btnPerfil' ><a href="/PerfilArt"><img class='imgPerfil' src={user} /></a></button>
+          <button className='not'><a href=""><img src={not} /></a></button>
+          <button className='btnPerfil' ><a href="/PerfilArt"><img className='imgPerfil' src={user} /></a></button>
         </div>
     </div>
     </>

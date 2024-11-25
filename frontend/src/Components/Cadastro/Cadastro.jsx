@@ -7,9 +7,9 @@ import './Cadastro.css';
 const Cadastro = () => {
    // Declaração dos estados usando useState
    const [email, setEmail] = useState(""); // Estado para armazenar o email
-   const [username, setUsername] = useState(""); // Estado para armazenar o nome de usuário
-   const [phone, setPhone] = useState(""); // Estado para armazenar o número de telefone
-   const [password, setPassword] = useState(""); // Estado para armazenar a senha
+   const [name_user, setName_user] = useState(""); // Estado para armazenar o nome de usuário
+   const [telefone, setTelefone] = useState(""); // Estado para armazenar o número de telefone
+   const [senha, setSenha] = useState(""); // Estado para armazenar a senha
    const [confSenha, setConfSenha] = useState(""); // Estado para armazenar a confirmação da senha
    const [message, setMessage] = useState(""); // Estado para armazenar mensagens de feedback
 
@@ -20,7 +20,7 @@ const Cadastro = () => {
       event.preventDefault(); // Prevê o comportamento padrão do formulário que recarregaria a página
 
       // Verifica se as senhas coincidem
-      if (password !== confSenha) {
+      if (senha !== confSenha) {
          setMessage("As senhas não coincidem. Tente novamente."); // Define a mensagem de erro se as senhas não coincidirem
       } else {
          setMessage("Cadastro realizado com sucesso!"); // Define a mensagem de sucesso se as senhas coincidirem
@@ -30,7 +30,7 @@ const Cadastro = () => {
          }, 1000); // Tempo em milissegundos
       }
       // Log para depuração, exibindo os dados do formulário
-      console.log({ email, username, phone, password });
+      console.log({ email, name_user, telefone, senha });
    };
 
    return (
@@ -51,16 +51,16 @@ const Cadastro = () => {
                </div>
                <div className='input2'>
                   Nome de usuário <br />
-                  <input type="text" required onChange={(e) => setUsername(e.target.value)} /> {/* Campo para o nome de usuário */}
+                  <input type="text" required onChange={(e) => setName_user(e.target.value)} /> {/* Campo para o nome de usuário */}
                </div>
                <div className='input3'>
                   Número de telefone <br />
-                  <input type="number" required onChange={(e) => setPhone(e.target.value)} /> {/* Campo para o telefone */}
+                  <input type="number" required onChange={(e) => setTelefone(e.target.value)} /> {/* Campo para o telefone */}
                </div>
                <div className='senhaCadastro'> {/* Container para os campos de senha */}
                   <div>
                      <label htmlFor="senha">Senha</label> {/* Label para o campo de senha */}
-                     <input type="password" name="senha" id="senha" required onChange={(e) => setPassword(e.target.value)} /> {/* Campo de senha */}
+                     <input type="password" name="senha" id="senha" required onChange={(e) => setSenha(e.target.value)} /> {/* Campo de senha */}
                   </div>
                   <div>
                      <label htmlFor="confsenha">Confirmar senha</label> {/* Label para o campo de confirmação de senha */}

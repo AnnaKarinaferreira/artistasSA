@@ -7,18 +7,18 @@ const HeaderNLog = () =>{
 
     return(
         <>
-       <div class='tamanho' id='NAOlogado'>
+       <div className='tamanho' id='NAOlogado'>
        <img src={logo} alt="logo" />
-        <div class='unsBtn'>
-          <button  class='btnETD'><a class='linkETD' href="/">Explorar</a></button>
-          <button  class='btnETD'><p><a class='linkETD' href="/Cadastro">Desafios</a></p></button>
+        <div className='unsBtn'>
+          <button  className='btnETD'><a className='linkETD' href="/">Explorar</a></button>
+          <button  className='btnETD'><p><a className='linkETD' href="/Cadastro">Desafios</a></p></button>
         </div>
         <div>
-          <input class='pesquisa' type="search" name="" id="" />
+          <input className='pesquisa' type="search" name="" id="" />
         </div>
-        <div class='icones'>
-          <button class='btnlogin'><p class='login' ><a href="/Login"><p >Fazer Login</p></a></p></button>
-          <button class='btncadastro'><p class='cadastro'><a href="/Cadastro">Cadastrar-se</a></p></button>
+        <div className='icones'>
+          <button className='btnlogin'><p className='login' ><a href="/Login"><p >Fazer Login</p></a></p></button>
+          <button className='btncadastro'><p className='cadastro'><a href="/Cadastro">Cadastrar-se</a></p></button>
         </div>
        </div>
         </>

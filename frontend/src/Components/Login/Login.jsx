@@ -5,12 +5,12 @@ import voltar from "../../assets/voltar.png";
 
 const Login = () => {
     const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
+    const [senha, setSenha] = useState("");
 
     const handleSubmit = async (event) => {
         event.preventDefault();
 
-        const data = { email, password };
+        const data = { email, senha };
 
         try {
             const response = await fetch('http://localhost:5432/login', {
@@ -57,8 +57,8 @@ const Login = () => {
                             Senha <br />
                             <input
                                 type="password"
-                                value={password}
-                                onChange={(e) => setPassword(e.target.value)}
+                                value={senha}
+                                onChange={(e) => setSenha(e.target.value)}
                             />
                         </div>
                         <div className='lembrarsenha'>
