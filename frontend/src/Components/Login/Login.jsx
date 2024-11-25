@@ -13,7 +13,7 @@ const Login = () => {
         const data = { email, senha };
 
         try {
-            const response = await fetch('http://localhost:5432/login', {
+            const response = await fetch('http://localhost:3000/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -26,8 +26,10 @@ const Login = () => {
             }
 
             const result = await response.json();
-            console.log('Login realizado com sucesso:', result);
-            // Aqui, você pode redirecionar ou realizar outras ações após o login bem-sucedido
+            if(result === true){
+                console.log('Login realizado com sucesso:', result);
+                // Aqui, você pode redirecionar ou realizar outras ações após o login bem-sucedido
+            }
 
         } catch (error) {
             console.error('Erro:', error);

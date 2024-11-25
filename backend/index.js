@@ -38,6 +38,24 @@ app.get('/usuario', async (req, res) => {
     }
 });
 
+// Rota para logar
+app.post('/login', async (req, res) => {
+    try {
+        const usuario = req.body;
+        let result = await pool.query(`SELECT u.id_usuario FROM usuario u where u.email = '${usuario.email}' and u.senha = '${usuario.senha}'`); // Consulta no banco
+        if(result != null && result){ //verificar se esse result é um objeto ou numero 
+            result = true;
+        }
+        else{
+            result = false;
+        }
+        res.json(result); // Retorna os usuários
+    } catch (err) {
+        console.error('Erro no banco de dados:', err.stack); // Log de erro
+        res.status(500).json({ error: 'Erro ao buscar usuario'}); // Resposta de erro
+    }
+});
+
 // Rota para buscar um usuário por ID
 app.get('/usuario/:id', async (req, res) => {
     const { id } = req.params; // Captura o ID da rota
