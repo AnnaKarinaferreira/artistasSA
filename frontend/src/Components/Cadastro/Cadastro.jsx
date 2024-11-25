@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
-import voltar from "../../assets/voltar.png"
-import './Cadastro.css'
+import voltar from "../../assets/voltar.png";
+import './Cadastro.css';
 
 const Cadastro = () => {
    // Declaração dos estados usando useState

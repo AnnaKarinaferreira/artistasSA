@@ -11,26 +11,32 @@ import steam from "../../assets/steam.svg";
 import threads from "../../assets/threads.svg";
 
 const PerfilArt = () => {
+
+    // Declaração dos estados usando useState
+   const [titulo, settitulo] = useState("");
+
   return (
     <>
       <HeaderLog></HeaderLog>
 
+        {/* modal de postar arte */}
         <div id="postarArte">
             <button>fechar</button>
             <h2>Postar novo projeto</h2>
             <form>
-                <label for="tituloArt">Titulo:</label>
-                <input type="text" id="tituloArt"/>
-                <label for="legendaArt">Legenda:</label>
-                <input type="text" id="legendaArt"/>
-                <input type="checkbox" id="antiIA" value="anti"/>
-                <label for="antiIA">Filtro anti-IA:</label>
-                <input type="checkbox" id="contSensivel" value="sensivel"/>
+                <label for="titulo">Titulo:</label>
+                <input type="text" id="titulo" required onChange={(e) => settitulo(e.target.value)} />
+                <label for="legenda">Legenda:</label>
+                <input type="text" id="legenda" required onChange={(e) => setlegenda(e.target.value)}/>
+                <input type="checkbox" id="filtro_anti_ia" required onChange={(e) => setfiltro_anti_ia(e.target.value)}/>
+                <label for="filtro_anti_ia">Filtro anti-IA:</label>
+                <input type="checkbox" id="filtro_conteudo" onChange={(e) => setfiltro_conteudo(e.target.value)}/>
                 <label>Contém conteúdo sensível:</label> <br></br>
                 <label for="tags">Tags:</label>
                 <input type="text" id="tags"/>
                 <label for="materiais">Materiais:</label>
                 <input type="text" id="materiais"/>
+                
             </form>
         </div>
 
