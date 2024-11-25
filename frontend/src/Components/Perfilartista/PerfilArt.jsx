@@ -9,12 +9,56 @@ import map from "../../assets/map.svg";
 import pinterest from "../../assets/pinterest.svg";
 import steam from "../../assets/steam.svg";
 import threads from "../../assets/threads.svg";
+import X from "../../assets/x.svg";
 
 const PerfilArt = () => {
 
-    // Declaração dos estados usando useState
-   const [titulo, settitulo] = useState("");
-   const [legenda, setLegenda] = useState("");
+    const [titulo, settitulo] = useState("");
+    const [legenda, setLegenda] = useState("");
+    const [filtroAntiIA, setFiltroAntiIA] = useState(false);
+    const [filtroConteudo, setFiltroConteudo] = useState(false);
+    const [tags, setTags] = useState("");
+    const [materiais, setMateriais] = useState("");
+
+    const abrirModal = () => {
+        document.getElementById('postarArte').style.display = 'flex';
+    };
+
+    const fecharModal = () => {
+        document.getElementById('postarArte').style.display = 'none';
+    };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault(); // Impede o envio padrão do formulário
+
+        const dados = {
+            titulo,
+            legenda,
+            filtroAntiIA,
+            filtroConteudo,
+            tags,
+            materiais
+        };
+
+        try {
+            const response = await fetch('/api/postar', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(dados),
+            });
+
+            if (response.ok) {
+                console.log("Projeto postado com sucesso!");
+                fecharModal(); // Fecha o modal após o sucesso
+            } else {
+                console.error("Erro ao postar projeto");
+            }
+        } catch (error) {
+            console.error("Erro ao enviar dados:", error);
+        }
+    };
 
   return (
     <>
@@ -22,7 +66,7 @@ const PerfilArt = () => {
 
         {/* modal de postar arte */}
         <div id="postarArte">
-            <button>fechar</button>
+            <button onClick={fecharModal} className="fecharX"> <img src={X}/> </button>
             <h2>Postar novo projeto</h2>
             <form>
                 <label for="titulo">Titulo:</label>
@@ -37,7 +81,9 @@ const PerfilArt = () => {
                 <input type="text" id="tags"/>
                 <label for="materiais">Materiais:</label>
                 <input type="text" id="materiais"/>
-                
+                <label>Anexar arquivos:</label>
+                <input type="file" id="imagem" onChange="/encodeToBase64(this)"></input>
+                <button>Postar</button>
             </form>
         </div>
 
@@ -88,7 +134,7 @@ const PerfilArt = () => {
             </div>
             <div className='cima'>
                 <div className='retangulo'></div>
-                <button onClick = {() => { document.getElementById('postarArte').style.display='flex'}} className="btnpostar" >Postar novo projeto</button>
+                <button  onClick={abrirModal} className="btnpostar" >Postar novo projeto</button>
                 <div className='menuC'>
                     <p className='categorias'>Categoria</p>
                     <p className='categorias'>Categoria</p>

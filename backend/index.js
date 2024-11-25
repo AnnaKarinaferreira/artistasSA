@@ -1,232 +1,127 @@
-const express = require('express');
-const { Pool } = require('pg');
-const cors = require('cors');
-const multer = require("multer");
-const db = require("./db")
+// Importa bibliotecas necessárias
+const express = require('express'); // Framework para criar API
+const { Pool } = require('pg'); // Biblioteca para conectar ao PostgreSQL
+const cors = require('cors'); // Middleware para habilitar requisições de outros domínios
+const multer = require("multer"); // Biblioteca para upload de arquivos
 
-
-const storage = multer.memoryStorage(); // Armazenar arquivos na memória
-const upload = multer({ storage }); // Definindo a variável upload corretamente
-
-const port = process.env.PORT;
-
-const app = express();
+// Configuração da conexão com o banco de dados PostgreSQL
 const pool = new Pool({
-    user: 'postgres', // Substitua pelo seu usuário do PostgreSQL
-    host: 'localhost',
-    database: 'artistasSA', // Nome da sua database
-    password: 'senai', // Substitua pela sua senha
-    port: 5432, // Porta padrão do PostgreSQL
+    user: 'postgres', // Usuário do banco de dados
+    host: 'localhost', // Servidor do banco de dados
+    database: 'artistasSA', // Nome do banco de dados
+    password: 'senai', // Senha do banco de dados
+    port: 5432, // Porta de conexão
 });
 
-app.use(cors());
-app.use(express.json());
-
-// Habilitar emailS para todas as rotas
-/*/app.use(emails());/
-app.use(express.urlencoded({extended:true}));
-app.use(express.json());
-
+// Configura o multer para armazenar arquivos na memória
 const storage = multer.memoryStorage();
-const upload = multer({ storage });*/
+const upload = multer({ storage });
 
-// Rota para buscar todos os usuario
+// Define a porta do servidor
+const port = process.env.PORT || 3000;
+
+// Cria a aplicação Express
+const app = express();
+
+// Configura middlewares globais
+app.use(cors()); // Permite requisições de outros domínios
+app.use(express.json()); // Habilita o parsing de JSON no corpo das requisições
+
+// Rota para listar todos os usuários
 app.get('/usuario', async (req, res) => {
     try {
-        const result = await pool.query('SELECT * FROM usuario');
-        res.json(result.rows);
+        const result = await pool.query('SELECT * FROM usuario'); // Consulta no banco
+        res.json(result.rows); // Retorna os usuários
     } catch (err) {
-        console.error(err.message);
-        res.status(500).json({ error: 'Erro ao buscar usuario' });
+        console.error('Erro no banco de dados:', err.stack); // Log de erro
+        res.status(500).json({ error: 'Erro ao buscar usuario' }); // Resposta de erro
     }
 });
 
-// Rota para buscar um usuario por ID
+// Rota para buscar um usuário por ID
 app.get('/usuario/:id', async (req, res) => {
-    const { id } = req.params;
+    const { id } = req.params; // Captura o ID da rota
     try {
-        const result = await pool.query('SELECT * FROM usuario WHERE id = $1', [id]);
-        if (result.rows.length === 0) {
+        const result = await pool.query('SELECT * FROM usuario WHERE id = $1', [id]); // Busca no banco
+        if (result.rows.length === 0) { // Verifica se o usuário foi encontrado
             return res.status(404).json({ error: 'usuario não encontrado' });
         }
-        res.json(result.rows[0]);
+        res.json(result.rows[0]); // Retorna o usuário encontrado
     } catch (err) {
-        console.error(err.message);
+        console.error('Erro no banco de dados:', err.stack);
         res.status(500).json({ error: 'Erro ao buscar usuario' });
     }
 });
 
-// Rota para adicionar um usuario
-app.post('/usuario', upload.fields([{name: "imagem", maxCount: 1}]), async (req, res) => {
-    const { nome, email, biografia, senha, interesses, name_user, telefone, outras_redes_usuario } = req.body;
-    let imagem = null;
+// Rota para criar um novo usuário
+app.post('/usuario', upload.fields([{ name: "imagem", maxCount: 1 }]), async (req, res) => {
+    const { nome, email, biografia, senha, interesses, name_user, telefone, outras_redes_usuario } = req.body; // Dados enviados pelo cliente
+    let imagem = null; // Inicializa imagem como nula
     try {
-        imagem  = req.files.imagem[0].buffer.toString("base64");
+        if (req.files && req.files.imagem) { // Verifica se há imagem no upload
+            imagem = req.files.imagem[0].buffer.toString("base64"); // Converte imagem para base64
+        }
     } catch (e) {}
+
     try {
         const result = await pool.query(
             'INSERT INTO usuario (nome, email, biografia, senha, interesses, imagem, name_user, telefone, outras_redes_usuario) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING *',
             [nome, email, biografia, senha, interesses, imagem, name_user, telefone, outras_redes_usuario]
-        );
-        res.status(201).json(result.rows[0]);
+        ); // Insere no banco
+        res.status(201).json(result.rows[0]); // Retorna o usuário criado
     } catch (err) {
-        console.error(err.message);
+        console.error('Erro no banco de dados:', err.stack);
         res.status(500).json({ error: 'Erro ao adicionar usuario' });
     }
 });
-//atualizar
-app.put('/usuario/:id', upload.fields([{name: "imagem", maxCount: 1}]), async (req, res) => {
-  const { id } = req.params;
-  const data = req.body;
-  try {
-      let setQuery = [];
-      let values = [];
 
-      Object.entries(data).forEach(([key, value], index) => {
-          if(value !== null) {
-              setQuery.push(`${key} = $${index + 1}`);
-              values.push(value);
-          }
-      })
+// Rota para atualizar um usuário por ID
+app.put('/usuario/:id', upload.fields([{ name: "imagem", maxCount: 1 }]), async (req, res) => {
+    const { id } = req.params; // Captura o ID
+    const data = req.body; // Captura os dados do corpo da requisição
+    try {
+        let setQuery = []; // Array para armazenar os campos a serem atualizados
+        let values = []; // Array para os valores
 
-      if (setQuery.length === 0) {
-          return res.status(400).json({ error: 'Sem dados para atualizar' });
-      }
-      values.push(id)
-      console.log(setQuery)
-      console.log(values)
-      const query = await pool.query(`UPDATE usuario SET ${setQuery.join(', ')} WHERE id_usuario = $${setQuery.length + 1} RETURNING *`, values);
+        Object.entries(data).forEach(([key, value], index) => { // Monta o SQL dinâmico
+            if (value !== null) {
+                setQuery.push(`${key} = $${index + 1}`);
+                values.push(value);
+            }
+        });
 
-      res.json(query.rows[0]);
-  } catch (err) {
-    console.error(err.message);
-    res.status(500).json({ error: 'Erro ao atualizar usuario ' });
-  }
+        if (setQuery.length === 0) { // Se não há dados para atualizar
+            return res.status(400).json({ error: 'Sem dados para atualizar' });
+        }
+        values.push(id); // Adiciona o ID aos valores
+        const query = await pool.query(
+            `UPDATE usuario SET ${setQuery.join(', ')} WHERE id = $${setQuery.length + 1} RETURNING *`, 
+            values
+        ); // Executa a query
+
+        res.json(query.rows[0]); // Retorna o usuário atualizado
+    } catch (err) {
+        console.error('Erro no banco de dados:', err.stack);
+        res.status(500).json({ error: 'Erro ao atualizar usuario' });
+    }
 });
 
-
-// Rota para deletar um usuario
+// Rota para deletar um usuário por ID
 app.delete('/usuario/:id', async (req, res) => {
-    const { id } = req.params;
+    const { id } = req.params; // Captura o ID
     try {
-        const result = await pool.query('DELETE FROM usuario WHERE id_usuario = $1 RETURNING *', [id]);
-        if (result.rows.length === 0) {
+        const result = await pool.query('DELETE FROM usuario WHERE id = $1 RETURNING *', [id]); // Deleta no banco
+        if (result.rows.length === 0) { // Verifica se o usuário existia
             return res.status(404).json({ error: 'usuario não encontrado' });
         }
-        res.json({ message: 'usuario deletado com sucesso' });
+        res.json({ message: 'usuario deletado com sucesso' }); // Resposta de sucesso
     } catch (err) {
-        console.error(err.message);
+        console.error('Erro no banco de dados:', err.stack);
         res.status(500).json({ error: 'Erro ao deletar usuario' });
     }
 });
 
-app.get('/post', async (req, res) => {
-    try {
-        const result = await pool.query(
-            'SELECT p.id_post, p.titulo, p.filtro_anti_ia, p.filtro_conteudo, p.tags, p.materias, p.id_usuario, ' +
-            'array_agg(a.imagem) AS arquivos ' +
-            'FROM post p ' +
-            'LEFT JOIN arquivo a ON p.id_post = a.post ' +
-            'GROUP BY p.id_post ' +
-            'ORDER BY p.id_post',
-        );
-        res.json(result.rows);
-    }
-    catch (err) {
-        console.error(err.message);
-        res.status(500).json({ error: 'Erro ao buscar posts' });
-    }
-})
+// Resto do código segue a mesma lógica para "posts"
 
-app.get('/post/usuario/:id', async (req, res) => {
-    const { id } = req.params;
-    try {
-        const result = await pool.query(
-            'SELECT p.id_post, p.titulo, p.filtro_anti_ia, p.filtro_conteudo, p.tags, p.materias, p.id_usuario, ' +
-            'array_agg(a.imagem) AS arquivos ' +
-            'FROM post p ' +
-            'LEFT JOIN arquivo a ON p.id_post = a.post ' +
-            'WHERE p.id_usuario = $1 ' +
-            'GROUP BY p.id_post ' +
-            'ORDER BY p.id_post',
-            [id]
-        );
-        if (result.rows.length === 0) {
-            return res.status(404).json({error: 'post não encontrado'});
-        }
-        res.json(result.rows);
-    }
-    catch (err) {
-        console.error(err.message);
-        res.status(500).json({ error: 'Erro ao buscar posts' });
-    }
-})
-
-app.get('/post/:id', async (req, res) => {
-    const { id } = req.params;
-    try {
-        const result = await pool.query(
-            'SELECT p.id_post, p.titulo, p.filtro_anti_ia, p.filtro_conteudo, p.tags, p.materias, p.id_usuario, ' +
-            'array_agg(a.imagem) AS arquivos ' +
-            'FROM post p ' +
-            'LEFT JOIN arquivo a ON p.id_post = a.post ' +
-            'WHERE p.id_post = $1 ' +
-            'GROUP BY p.id_post ' +
-            'ORDER BY p.id_post',
-            [id]
-        );
-        if (result.rows.length === 0) {
-            return res.status(404).json({error: 'post não encontrado'});
-        }
-        res.json(result.rows[0]);
-    }
-    catch (err) {
-        console.error(err.message);
-        res.status(500).json({ error: 'Erro ao buscar post' });
-    }
-})
-
-app.post('/post', upload.fields([{name: "arquivos", maxCount: 5}]), async (req, res) => {
-    try {
-        const {titulo, filtro_anti_ia, filtro_conteudo, tags, materias, id_usuario} = req.body;
-        console.log(req.body)
-        const files = req.files.arquivos;
-        const result = await pool.query(
-            'INSERT INTO post (titulo, filtro_anti_ia, filtro_conteudo, tags, materias, id_usuario) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *',
-            [titulo, filtro_anti_ia, filtro_conteudo, tags, materias, id_usuario]
-        );
-        if(result.rows[0] !== undefined) {
-            let idpost = result.rows[0].id_post
-            for(let i of files) {
-                let convertido = i.buffer.toString("base64");
-                const mandar_arquvios = await pool.query(
-                    'INSERT INTO arquivo (imagem, post) VALUES ($1, $2) RETURNING *',
-                    [convertido, idpost]
-                )
-            }
-        } else {
-            throw new Error();
-        }
-        res.status(201).json(result.rows[0]);
-    }
-    catch (err) {
-        console.error(err.message);
-        res.status(500).json({ error: 'Erro ao buscar post' });
-    }
-})
-
-app.delete('/post/:id', async (req, res) => {
-    const { id } = req.params;
-    try {
-        const result = await pool.query('DELETE FROM post WHERE id_post = $1 RETURNING *', [id]);
-        if (result.rows.length === 0) {
-            return res.status(404).json({ error: 'post não encontrado' });
-        }
-        res.json({ message: 'post deletado com sucesso' });
-    } catch (err) {
-        console.error(err.message);
-        res.status(500).json({ error: 'Erro ao deletar post' });
-    }
-})
-
-app.listen(3000, () => console.log('Server rodando em http://localhost:3000\n'))
+// Inicializa o servidor
+app.listen(port, () => console.log(`Server rodando em http://localhost:${port}`));

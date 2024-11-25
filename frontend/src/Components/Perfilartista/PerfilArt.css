@@ -152,7 +152,7 @@
 
 #postarArte{
     display: none;
-    background-color: white;
+    background-color: #F3F0ED;
     position: absolute;
     left: 50%;
     top: 50%;
@@ -161,6 +161,7 @@
     flex-direction: column;
     padding: 35px;
     border-radius: 20px;
+    border: 2px solid #962F2F;
 }
 
 #postarArte input{
@@ -170,6 +171,14 @@
 #postarArte h2{
     margin-bottom: 15px;
     margin-top: 15px;
+}
+
+.fecharX{
+    width: 23px;
+    height: 23px;
+    background-color:transparent;
+    border: none;
+    
 }
 
 .content {

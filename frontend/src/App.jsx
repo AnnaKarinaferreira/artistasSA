@@ -10,7 +10,6 @@ import Desafios from './Components/Desafios/Desafios.jsx';
 import Home from './Components/Home/Home.jsx';
 import HomeN from './Components/Home/HomeN.jsx';
 import PerfilArt from './Components/Perfilartista/PerfilArt.jsx';
-import Trabalhos from './Components/Trabalhos/Trabalhos.jsx';
 import OutroArt from './Components/Perfiloutroartista/OutroArt.jsx';
 
 function App() {
@@ -25,7 +24,6 @@ function App() {
           <Route path="/Desafios" element={<Desafios />} />
           <Route path="/Home" element={<Home />} />
           <Route path='/PerfilArt' element={<PerfilArt/>}/>
-          <Route path='/Trabalhos' element={<Trabalhos/>}/>
           <Route path='/OutroArt' element={<OutroArt/>}/>
         </Routes>
     </Router>
