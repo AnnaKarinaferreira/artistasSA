@@ -14,7 +14,6 @@ const HeaderLog = () => {
     <img src={logo} alt="logo" />
         <div class='unsBtn'>
           <button  class='btnETD'><a class='linkETD' href="/Home">Explorar</a></button>
-          <button  class='btnETD'><p><a class='linkETD' href="/Trabalhos">Trabalhos</a></p></button>
           <button  class='btnETD'><p><a class='linkETD' href="/Desafios">Desafios</a></p></button>        
         </div>
         <div>
