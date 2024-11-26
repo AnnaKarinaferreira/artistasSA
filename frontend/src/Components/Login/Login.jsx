@@ -1,38 +1,44 @@
-import React, { useState } from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import './Login.css';
-import voltar from "../../assets/voltar.png";
+import React, { useState } from 'react';  // Importa o React e o hook useState para gerenciar o estado
+import { BrowserRouter, Routes, Route } from 'react-router-dom';  // Importa as funções de roteamento do React Router
+import './Login.css';  // Importa o arquivo de estilo CSS para a página de login
+import voltar from "../../assets/voltar.png";  // Importa a imagem do ícone de voltar
 
 const Login = () => {
+    // Declara os estados para armazenar o email e a senha
     const [email, setEmail] = useState("");
     const [senha, setSenha] = useState("");
 
+    // Função chamada quando o formulário é enviado
     const handleSubmit = async (event) => {
-        event.preventDefault();
+        event.preventDefault();  // Impede o comportamento padrão de envio do formulário
 
+        // Cria um objeto com os dados de email e senha
         const data = { email, senha };
 
         try {
+            // Faz uma requisição POST para o servidor com os dados de login
             const response = await fetch('http://localhost:3000/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify(data),
+                body: JSON.stringify(data),  // Converte os dados para JSON
             });
 
+            // Se a resposta não for ok, lança um erro
             if (!response.ok) {
                 throw new Error('Erro na rede');
             }
 
+            // Recebe a resposta do servidor e tenta realizar o login
             const result = await response.json();
-            if(result === true){
+            if (result === true) {
                 console.log('Login realizado com sucesso:', result);
-                // Aqui, você pode redirecionar ou realizar outras ações após o login bem-sucedido
+                // Aqui pode-se redirecionar o usuário ou realizar outras ações após o login
             }
 
         } catch (error) {
-            console.error('Erro:', error);
+            console.error('Erro:', error);  // Caso haja um erro, exibe no console
         }
     }
 
@@ -40,10 +46,10 @@ const Login = () => {
         <>
             <div className='geral'>
                 <div className='boxlogin'>
-                    <form onSubmit={handleSubmit}>
+                    <form onSubmit={handleSubmit}>  {/* Envia os dados do formulário para a função handleSubmit */}
                         <div className='alinhamento1'>
-                            <img src={voltar} alt="" className='seta' />
-                            <a href="/" className='voltar'>Voltar</a>
+                            <img src={voltar} alt="" className='seta' />  {/* Exibe o ícone de voltar */}
+                            <a href="/" className='voltar'>Voltar</a>  {/* Link para a página inicial */}
                         </div>
                         <h1 className='titulo'>Bom te ver de volta!</h1>
                         <h1 className='descricao'>Faça login para voltar à nossa comunidade de artistas!</h1>
@@ -51,29 +57,29 @@ const Login = () => {
                             Seu email <br />
                             <input
                                 type="email"
-                                value={email}
-                                onChange={(e) => setEmail(e.target.value)}
+                                value={email}  // Atributo de valor ligado ao estado email
+                                onChange={(e) => setEmail(e.target.value)}  // Atualiza o estado do email
                             />
                         </div>
                         <div className='senha'>
                             Senha <br />
                             <input
                                 type="password"
-                                value={senha}
-                                onChange={(e) => setSenha(e.target.value)}
+                                value={senha}  // Atributo de valor ligado ao estado senha
+                                onChange={(e) => setSenha(e.target.value)}  // Atualiza o estado da senha
                             />
                         </div>
                         <div className='lembrarsenha'>
                             <label>
-                                <input type="checkbox" /> Lembrar senha
+                                <input type="checkbox" /> Lembrar senha  {/* Caixa de seleção para lembrar senha */}
                             </label><br />
                         </div>
                         <div className='esqueceusenha'>
-                            Esqueceu sua senha?<a href="#" className='linkrecuperar'>Clique aqui</a>
+                            Esqueceu sua senha?<a href="#" className='linkrecuperar'>Clique aqui</a>  {/* Link para recuperação de senha */}
                         </div>
-                        <button type='submit' className='continuar'>Continuar</button>
+                        <button type='submit' className='continuar'>Continuar</button>  {/* Botão para enviar o formulário */}
                         <div>
-                            Ainda não possui uma conta?<a href="/Cadastro" className='linkcadastro'>Faça seu cadastro aqui!</a>
+                            Ainda não possui uma conta?<a href="/Cadastro" className='linkcadastro'>Faça seu cadastro aqui!</a>  {/* Link para cadastro de novos usuários */}
                         </div>
                     </form>
                 </div>
@@ -82,4 +88,4 @@ const Login = () => {
     )
 }
 
-export default Login;
+export default Login;  // Exporta o componente Login para ser usado em outros arquivos
