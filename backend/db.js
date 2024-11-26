@@ -1,6 +1,4 @@
-Claro! Aqui está o código comentado de uma forma mais natural e informal:
 
-```javascript
 async function connect() { // Função assíncrona para conectar ao banco de dados
     // Se já tivermos uma conexão global, não precisa conectar de novo
     if(global.connection)
@@ -40,6 +38,3 @@ async function selectCustomers(id){
 module.exports = {
     selectCustomers
 }
-```
-
-Dessa forma, as explicações estão mais casuais e parecem mais como notas pessoais do que um comentário técnico formal. Se precisar de algo mais, é só avisar!
