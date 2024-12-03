@@ -9,7 +9,7 @@ const pool = new Pool({
     user: 'postgres', // Usuário do banco de dados
     host: 'localhost', // Servidor do banco de dados
     database: 'artistasSA', // Nome do banco de dados
-    password: 'senai', // Senha do banco de dados
+    password: 'postgres', // Senha do banco de dados
     port: 5432, // Porta de conexão
 });
 
@@ -42,8 +42,8 @@ app.get('/usuario', async (req, res) => {
 app.post('/login', async (req, res) => {
     try {
         const usuario = req.body;
-        let result = await pool.query(`SELECT u.id_usuario FROM usuario u where u.email = '${usuario.email}' and u.senha = '${usuario.senha}'`); // Consulta no banco
-        if(result != null && result){ //verificar se esse result é um objeto ou numero 
+        let result = await pool.query(SELECT u.id_usuario FROM usuario u where u.email = '${usuario.email}' and u.senha = '${usuario.senha}'); // Consulta no banco
+        if(result.rowCount !== 0){ //verificar se esse result é um objeto ou numero
             result = true;
         }
         else{
@@ -73,7 +73,8 @@ app.get('/usuario/:id', async (req, res) => {
 
 // Rota para criar um novo usuário
 app.post('/usuario', upload.fields([{ name: "imagem", maxCount: 1 }]), async (req, res) => {
-    const { nome, email, biografia, senha, interesses, name_user, telefone, outras_redes_usuario } = req.body; // Dados enviados pelo cliente
+    const { email, senha, name_user, telefone } = req.body; // Dados enviados pelo cliente
+    console.log(req.body);
     let imagem = null; // Inicializa imagem como nula
     try {
         if (req.files && req.files.imagem) { // Verifica se há imagem no upload
@@ -83,8 +84,8 @@ app.post('/usuario', upload.fields([{ name: "imagem", maxCount: 1 }]), async (re
 
     try {
         const result = await pool.query(
-            'INSERT INTO usuario (nome, email, biografia, senha, interesses, imagem, name_user, telefone, outras_redes_usuario) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING *',
-            [nome, email, biografia, senha, interesses, imagem, name_user, telefone, outras_redes_usuario]
+            'INSERT INTO usuario (email, senha, name_user, telefone) VALUES ($1, $2, $3, $4) RETURNING *',
+            [email, senha, name_user, telefone]
         ); // Insere no banco
         res.status(201).json(result.rows[0]); // Retorna o usuário criado
     } catch (err) {
@@ -103,7 +104,7 @@ app.put('/usuario/:id', upload.fields([{ name: "imagem", maxCount: 1 }]), async 
 
         Object.entries(data).forEach(([key, value], index) => { // Monta o SQL dinâmico
             if (value !== null) {
-                setQuery.push(`${key} = $${index + 1}`);
+                setQuery.push(${key} = $${index + 1});
                 values.push(value);
             }
         });
@@ -113,7 +114,7 @@ app.put('/usuario/:id', upload.fields([{ name: "imagem", maxCount: 1 }]), async 
         }
         values.push(id); // Adiciona o ID aos valores
         const query = await pool.query(
-            `UPDATE usuario SET ${setQuery.join(', ')} WHERE id = $${setQuery.length + 1} RETURNING *`, 
+            UPDATE usuario SET ${setQuery.join(', ')} WHERE id = $${setQuery.length + 1} RETURNING *, 
             values
         ); // Executa a query
 
@@ -142,4 +143,4 @@ app.delete('/usuario/:id', async (req, res) => {
 // Resto do código segue a mesma lógica para "posts"
 
 // Inicializa o servidor
-app.listen(port, () => console.log(`Server rodando em http://localhost:${port}`));
+app.listen(port, () => console.log(Server rodando em http://localhost:${port}));

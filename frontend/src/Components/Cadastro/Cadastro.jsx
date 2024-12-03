@@ -16,28 +16,49 @@ const Cadastro = () => {
    const navigate = useNavigate(); // Inicializa o hook useNavigate para navegação
 
    // Função chamada ao submeter o formulário
-   const handleSubmit = (event) => {
-      event.preventDefault(); // Prevê o comportamento padrão do formulário que recarregaria a página
+   const handleSubmit = async () => {
+      try {
+         if(!email || !name_user || !telefone || !senha || !confSenha) {
+            setMessage("Preencha todos os campos");
+            return;
+         }
+         console.log(email, name_user, telefone, senha, confSenha);
+         // Verifica se as senhas coincidem
+         if (senha !== confSenha) {
+            setMessage("As senhas não coincidem. Tente novamente."); // Define a mensagem de erro se as senhas não coincidirem
+            return;
+         }
 
-      // Verifica se as senhas coincidem
-      if (senha !== confSenha) {
-         setMessage("As senhas não coincidem. Tente novamente."); // Define a mensagem de erro se as senhas não coincidirem
-      } else {
+         const response = await fetch('http://localhost:3000/usuario', {
+            method: 'POST',
+            headers: {
+               'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({email, name_user, telefone, senha}),  // Converte os dados para JSON
+         });
+         console.log(response)
+         // Se a resposta não for ok, lança um erro
+         if (!response.ok) {
+            setMessage("Cadastro falhou, tente novamente.");
+            return;
+         }
+
          setMessage("Cadastro realizado com sucesso!"); // Define a mensagem de sucesso se as senhas coincidirem
          // Redireciona para a página de Login após 2 segundos
          setTimeout(() => {
-            navigate('/Home'); // Navega para a rota "/Login"
+            navigate('/Login'); // Navega para a rota "/Login"
          }, 1000); // Tempo em milissegundos
       }
-      // Log para depuração, exibindo os dados do formulário
-      console.log({ email, name_user, telefone, senha });
+      catch(e) {
+         console.log(e);
+         setMessage("Algo deu errado");
+      }
    };
 
    return (
       <>
          <div className='geral'>
          <div className='Conteiner'> {/* Container principal do formulário */}
-            <form className="formCadastro" onSubmit={handleSubmit}> {/* Formulário com onSubmit */}
                <div className='alinhamento1'> {/* Container para a seta de voltar */}
                   <img src={voltar} alt="Voltar" className='seta' /> {/* Imagem de voltar */}
                   <a href="/" className='voltar'>voltar</a> {/* Link de voltar */}
@@ -73,10 +94,9 @@ const Cadastro = () => {
                      Lembre de mim
                   </label> <br />
                </div>
-               <button className='BTNcontinuar' type="submit">Cadastrar</button> {/* Botão para submeter o formulário */}
+               <button className='BTNcontinuar' type="submit" onClick={handleSubmit}>Cadastrar</button> {/* Botão para submeter o formulário */}
                {message && <p>{message}</p>} {/* Exibe a mensagem de feedback se existir */}
                <p>Já possuí uma conta conosco? <a href="/Login" className='linklogin'>Faça login aqui</a></p>
-            </form>
          </div>
          </div>
       </>
