@@ -42,7 +42,8 @@ app.get('/usuario', async (req, res) => {
 app.post('/login', async (req, res) => {
     try {
         const usuario = req.body;
-        let result = await pool.query(SELECT u.id_usuario FROM usuario u where u.email = '${usuario.email}' and u.senha = '${usuario.senha}'); // Consulta no banco
+        console.log(usuario);
+        let result = await pool.query(`SELECT u.id_usuario FROM usuario u where u.email = ${usuario.email} and u.senha = ${usuario.senha}`); // Consulta no banco
         if(result.rowCount !== 0){ //verificar se esse result é um objeto ou numero
             result = true;
         }
@@ -104,7 +105,7 @@ app.put('/usuario/:id', upload.fields([{ name: "imagem", maxCount: 1 }]), async 
 
         Object.entries(data).forEach(([key, value], index) => { // Monta o SQL dinâmico
             if (value !== null) {
-                setQuery.push(${key} = $${index + 1});
+                setQuery.push(`${key} = $${index + 1}`);
                 values.push(value);
             }
         });
@@ -114,7 +115,7 @@ app.put('/usuario/:id', upload.fields([{ name: "imagem", maxCount: 1 }]), async 
         }
         values.push(id); // Adiciona o ID aos valores
         const query = await pool.query(
-            UPDATE usuario SET ${setQuery.join(', ')} WHERE id = $${setQuery.length + 1} RETURNING *, 
+            `UPDATE usuario SET ${setQuery.join(', ')} WHERE id = $${setQuery.length + 1} RETURNING *`, 
             values
         ); // Executa a query
 
@@ -143,4 +144,4 @@ app.delete('/usuario/:id', async (req, res) => {
 // Resto do código segue a mesma lógica para "posts"
 
 // Inicializa o servidor
-app.listen(port, () => console.log(Server rodando em http://localhost:${port}));
+app.listen(port, () => console.log(`Server rodando em http://localhost:${port}`));
